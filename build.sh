@@ -30,33 +30,41 @@ echo "<!DOCTYPE html>
     beloved community!
   </p>
 
+   <p>
+    Instructions on how to contribute can be found at <a
+      href=\"https://github.com/acmcsuf.com/1st\"
+      >https://github.com/acmcsuf.com/1st</a>. If you have any questions, feel
+    free to ask in the <a href=\"https://acmcsuf.com/discord\"
+      >#first-contributions</a> channel in our Discord server.
+  </p>
+
   <h2>References</h2>
   <ul>
-    <li><a href="https://acmcsuf.com/1st">acmcsuf.com/1st</a></li>
+    <li><a href=\"https://acmcsuf.com/1st\">acmcsuf.com/1st</a></li>
     <li>
       <a
-        href="https://github.com/firstcontributions/first-contributions#readme"
+        href=\"https://github.com/firstcontributions/first-contributions#readme\"
         >First contributions
       </a>
     </li>
   </ul>
 
   <h2>List of contributors</h2>
-  <ul>" >> "$output_file"
+  <ul>" >>"$output_file"
 
 # Loop through all GFM files.
 for file in notes/*.md; do
   # Open the li element.
-  echo "    <li>" >> "$output_file"
+  echo "    <li>" >>"$output_file"
 
   # Convert GFM files to HTML and append to output file.
-  pandoc -f gfm -t html "$file" >> "$output_file"
+  pandoc -f gfm -t html "$file" >>"$output_file"
 
   # Close the li element.
-  echo "    </li>" >> "$output_file"
+  echo "    </li>" >>"$output_file"
 done
 
 # Finish the output file.
 echo "  </ul>
 </body>
-</html>" >> "$output_file"
+</html>" >>"$output_file"
