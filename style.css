@@ -21,6 +21,7 @@
   --color-primary: #ffffff;
   --color-secondary: #e5e5e5;
   --color-contrast: #393939;
+  --color-oss-team: #11d4b1;
 }
 
 *,
@@ -30,11 +31,15 @@
 }
 
 body {
-  max-width: 40rem;
+  max-width: 35rem;
   margin: 2rem auto;
 }
 
 h1 {
   vertical-align: center;
   text-align: center;
+}
+
+p > b {
+  color: var(--color-oss-team);
 }
