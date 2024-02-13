@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+:root {
+  font-family: var(--ff-regular);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  background-color: var(--color-primary);
+  color: var(--color-contrast);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --ff-regular: "Poppins", "sans-serif";
+  --ff-custom: "Fira Code", "monospace";
+
+  --color-primary: #ffffff;
+  --color-secondary: #e5e5e5;
+  --color-contrast: #393939;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 2rem auto;
+}
+
+h1 {
+  vertical-align: center;
+  text-align: center;
+}
