@@ -1,4 +1,5 @@
 # 1st
+<br>
 
 ## First Contributions to acmCSUF
 <br>
@@ -43,9 +44,36 @@ Now create a branch using the git switch command: `git switch -c your-new-branch
 For example: `git switch -c add-ethanthatonekid`
 <br> <br>
 
+## Make necessary changes and commit them
+<br>
+
 <!-- TODO: Place instructions here.
 Reference: https://acmcsuf.com/1st -->
+<br> <br>
+
+## Push changes to GitHub
+<br>
+
+Push your changes using the command `git push`:
+
+`git push origin -u add-your-branch-name`
+
+replacing `<add-your-branch-name>` with the name of the branch you created earlier.
+<br> <br>
+
+## Submit your changes for review
+<br>
+
+If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+
+Now submit the pull request.
+
+Soon, someone will be merging all your changes into the master branch of this project. You will get a notification email once the changes have been merged.
 
 ---
+
+### CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION
+
+Inspired by [First Contributions](https://github.com/firstcontributions/first-contributions#readme)
 
 Maintained with 💚 by [**@acmcsufoss**](https://github.com/acmcsufoss)
