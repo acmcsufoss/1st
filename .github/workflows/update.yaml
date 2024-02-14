@@ -32,4 +32,4 @@ jobs:
           git config --global user.email "noreply@oss.acmcsuf.com"
           git config --global user.name "acmcsufoss"
           git commit -am "Update HTML"
-          git push
+          git push origin HEAD:${{ github.ref }}
