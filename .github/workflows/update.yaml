@@ -1,0 +1,31 @@
+name: Update HTML
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Pandoc
+        uses: r-lib/actions/setup-pandoc@v1
+
+      - name: Run build script
+        id: build
+        run: |
+          bash build.sh
+
+          if git diff --exit-code --quiet; then
+            echo "updated=0" >> $GITHUB_OUTPUT
+          else
+            echo "updated=1" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if changes
+        if: steps.build.outputs.updated == '1'
+        run: git push
