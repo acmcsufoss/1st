@@ -18,7 +18,7 @@ jobs:
       - name: Run build script
         id: build
         run: |
-          ./build.sh
+          bash build.sh
 
           git diff
 
