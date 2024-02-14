@@ -1,1 +1,1 @@
-[**@EthanThatOneKid**](https://etok.codes/) wuz here.
+[**@EthanThatOneKid**](https://etok.codes/) wuz here!
