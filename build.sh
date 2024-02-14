@@ -32,8 +32,8 @@ echo "<!DOCTYPE html>
 
    <p>
     Instructions on how to contribute can be found at <a
-      href=\"https://github.com/acmcsuf.com/1st\"
-      >https://github.com/acmcsuf.com/1st</a>. If you have any questions, feel
+      href=\"https://github.com/acmcsufoss/1st\"
+      >https://github.com/acmcsufoss/1st</a>. If you have any questions, feel
     free to ask in the <a href=\"https://acmcsuf.com/discord\"
       >#first-contributions</a> channel in our Discord server.
   </p>
