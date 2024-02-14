@@ -24,18 +24,18 @@ echo "<!DOCTYPE html>
 
   <p>
     This is a repository dedicated for new members of the ACM at CSUF
-    <b>Open Source Software Team</b> to make their first contributions to the
-    acmcsufoss org! Let us walk through the steps so you can make your first
-    commit, pull request, or issue closing to become a contributor of our
-    beloved community!
+    <b class=\"oss\">Open Source Software Team</b> to make their first
+    contributions to the acmcsufoss org! Let us walk through the steps so you
+    can make your first commit, pull request, or issue closing to become a
+    contributor of our beloved community!
   </p>
 
-   <p>
-    Instructions on how to contribute can be found at <a
-      href=\"https://github.com/acmcsufoss/1st\"
-      >https://github.com/acmcsufoss/1st</a>. If you have any questions, feel
-    free to ask in the <a href=\"https://acmcsuf.com/discord\"
-      >#first-contributions</a> channel in our Discord server.
+  <p>
+    Instructions on how to contribute can be found in the
+    <a href=\"https://github.com/acmcsufoss/1st#readme\">README</a>. If you have
+    any questions, feel free to ask in the
+    <a href=\"https://acmcsuf.com/discord\">#first-contributions</a> channel in
+    our Discord server.
   </p>
 
   <h2>References</h2>

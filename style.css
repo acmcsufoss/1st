@@ -22,11 +22,13 @@
   --color-secondary: #e5e5e5;
   --color-contrast: #393939;
   --color-oss-team: #11d4b1;
+  --color-link: #0097a7;
 
   @media (prefers-color-scheme: dark) {
     --color-primary: #1a1a1a;
     --color-secondary: #2d2d2d;
     --color-contrast: #f5f5f5;
+    --color-link: #4dd0e1;
   }
 }
 
@@ -46,6 +48,14 @@ h1 {
   text-align: center;
 }
 
-p > b {
+p > b.oss {
   color: var(--color-oss-team);
+}
+
+a {
+  color: var(--color-link);
+}
+
+ul li p img {
+  width: 1.5rem;
 }

@@ -1,4 +1,4 @@
-name: Update HTML
+name: update-html
 
 on:
   workflow_dispatch:
