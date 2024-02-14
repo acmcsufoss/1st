@@ -1,7 +1,4 @@
-# 1st
-<br>
-
-## First Contributions to acmCSUF
+# 1st | First Contributions to acmCSUF
 <br>
 
 `oss.acmcsuf.com/1st` aims to simplify and guide the way beginners make their first contribution. If you are looking to make your first contribution, follow the steps below. If you're not comfortable with command line, [here are tutorials using GUI tools](https://github.com/firstcontributions/first-contributions/blob/main/README.md#tutorials-using-other-tools). If you don't have Git on your machine, [install it](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).
@@ -29,6 +26,7 @@ Now clone the forked repository to your machine. Go to your GitHub account, open
 
 Open a terminal and run the following git command: git clone "url you just copied" where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project). See the previous steps to obtain the url.
 ![image](https://github.com/EvanCPSC/1st/assets/142952307/fc40d06a-62d5-4ca3-bfcc-e80b3831f7d0)
+
 For example:
 
 `git clone https://github.com/this-is-you/acmcsuf.com.git`
