@@ -20,6 +20,8 @@ jobs:
         run: |
           bash build.sh
 
+          git diff
+
           if git diff --exit-code --quiet; then
             echo "updated=0" >> $GITHUB_OUTPUT
           else
@@ -28,4 +30,6 @@ jobs:
 
       - name: Commit and push if changes
         if: steps.build.outputs.updated == '1'
-        run: git push
+        run: |
+          git commit -am "Update HTML"
+          git push
