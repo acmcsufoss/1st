@@ -55,7 +55,7 @@ echo "<!DOCTYPE html>
   <ul>" >>"$output_file"
 
 # Loop through all GFM files.
-for file in notes/*.md; do
+for file in collaborators/*.md; do
   # Open the li element.
   echo "    <li>" >>"$output_file"
 
