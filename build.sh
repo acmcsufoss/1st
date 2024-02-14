@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Dependencies:
 # - [Pandoc](https://pandoc.org/installing.html)
 #
