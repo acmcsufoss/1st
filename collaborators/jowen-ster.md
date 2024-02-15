@@ -1,5 +1,1 @@
-# Owen was here lol
-add me on discord 
-```
-typos.
-```
+[**@typos**](https://github.com/jOwen-ster): add me on discord: `typos`
