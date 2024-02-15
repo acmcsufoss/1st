@@ -39,8 +39,9 @@
 }
 
 body {
-  max-width: 35rem;
+  max-width: 58ch;
   margin: 2rem auto;
+  padding: 1rem 2rem;
 }
 
 h1 {
@@ -58,4 +59,14 @@ a {
 
 ul li p img {
   width: 1.5rem;
+}
+
+@media screen and (max-width: 30rem) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
 }
