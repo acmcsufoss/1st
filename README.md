@@ -54,8 +54,35 @@ there): `cd acmcsuf.com` Now create a branch using the git switch command:
 
 ## Make necessary changes and commit them
 
-<!-- TODO: Place instructions here.
-Reference: https://acmcsuf.com/1st -->
+Create a new Markdown file inside `/collaborators` that looks like `gh-user.md`, 
+where `gh-user` is your GitHub username. Then, inside that file, include **one** 
+line in the following format:
+
+```
+[**@<your-gh-username>**](https://github.com/<your-gh-username>) [Description]
+```
+
+Replace where it says `<your-gh-username>` with your GitHub username, so that the 
+hyperlink directs to your GitHub profile. Then, add a short description of yourself! 
+At the end, it will be rendered in the HTML page with the following format:
+
+<img src="https://github.com/acmcsufoss/1st/assets/112128328/c10d7529-a745-4a8f-9a38-93b832cd52ed" alt="Markdown rendered in HTML page visual example" width="400" />
+
+Please refer to any of the example Markdown files from the list of `/contributors`!
+
+Add those changes to the branch you created using the `git add` command:
+
+```
+git add <your-gh-username>.md
+```
+
+And commit them with a short description, using the `git commit` command:
+
+```
+git commit -m "Added <your-gh-username>.md"
+```
+
+replacing `<your-gh-username>` with your GitHub username :)
 
 ## Push changes to GitHub
 
