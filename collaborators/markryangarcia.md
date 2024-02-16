@@ -1,1 +1,1 @@
-[**@<MarkRyanGarcia>**](https://github.com/<MarkRyanGarcia>): How declare variable?
+[**@MarkRyanGarcia**](https://github.com/MarkRyanGarcia): How declare variable?
