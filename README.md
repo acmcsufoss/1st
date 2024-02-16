@@ -1,117 +1,117 @@
-# 1st | First Contributions to acmCSUF
+# 1fg | Svefg Pbagevohgvbaf gb npzPFHS
 
-`oss.acmcsuf.com/1st` aims to simplify and guide the way beginners make their
-first contribution. If you are looking to make your first contribution, follow
-the steps below. If you're not comfortable with command line,
-[here are tutorials using GUI tools](https://github.com/firstcontributions/first-contributions/blob/main/README.md#tutorials-using-other-tools).
-If you don't have Git on your machine,
-[install it](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).
+`bff.npzpfhs.pbz/1fg` nvzf gb fvzcyvsl naq thvqr gur jnl ortvaaref znxr gurve
+svefg pbagevohgvba. Vs lbh ner ybbxvat gb znxr lbhe svefg pbagevohgvba, sbyybj
+gur fgrcf orybj. Vs lbh'er abg pbzsbegnoyr jvgu pbzznaq yvar,
+[urer ner ghgbevnyf hfvat THV gbbyf](uggcf://tvguho.pbz/svefgpbagevohgvbaf/svefg-pbagevohgvbaf/oybo/znva/ERNQZR.zq#ghgbevnyf-hfvat-bgure-gbbyf).
+Vs lbh qba'g unir Tvg ba lbhe znpuvar,
+[vafgnyy vg](uggcf://qbpf.tvguho.pbz/ra/trg-fgnegrq/trggvat-fgnegrq-jvgu-tvg/frg-hc-tvg).
 
-## Welcome to ACM!
+## Jrypbzr gb NPZ!
 
-ACM at CSUF provides a social online platform, Discord, that brings passionate
-Titans together to engage in multiple conversations regarding our community, the
-tech field, and many more. Join
-[our Discord server](https://acmcsuf.com/discord) to learn more about future
-events, meet new people, and get involved with the community!
+NPZ ng PFHS cebivqrf n fbpvny bayvar cyngsbez, Qvfpbeq, gung oevatf cnffvbangr
+Gvgnaf gbtrgure gb ratntr va zhygvcyr pbairefngvbaf ertneqvat bhe pbzzhavgl, gur
+grpu svryq, naq znal zber. Wbva
+[bhe Qvfpbeq freire](uggcf://npzpfhs.pbz/qvfpbeq) gb yrnea zber nobhg shgher
+riragf, zrrg arj crbcyr, naq trg vaibyirq jvgu gur pbzzhavgl!
 
-## Fork `oss.acmcsuf.com/1st`
+## Sbex `bff.npzpfhs.pbz/1fg`
 
-<img src="https://github.com/EvanCPSC/1st/assets/142952307/bfd366f9-8f05-4c51-ae3f-2928fbf6c0f0" alt="Forking oss.acmcsuf.com/1st visual example" width="800" />
+<vzt fep="uggcf://tvguho.pbz/RinaPCFP/1fg/nffrgf/142952307/osq366s9-8s05-4p51-nr3s-2928sos6p0s0" nyg="Sbexvat bff.npzpfhs.pbz/1fg ivfhny rknzcyr" jvqgu="800" />
 
-Fork the repository by clicking on the fork button on the top of
-[`oss.acmcsuf.com/1st`'s page on GitHub](https://github.com/acmcsufoss/1st).
-This will create a copy of this repository in your account.
+Sbex gur ercbfvgbel ol pyvpxvat ba gur sbex ohggba ba gur gbc bs
+[`bff.npzpfhs.pbz/1fg`'f cntr ba TvgUho](uggcf://tvguho.pbz/npzpfhsbff/1fg).
+Guvf jvyy perngr n pbcl bs guvf ercbfvgbel va lbhe nppbhag.
 
-## Clone the repository
+## Pybar gur ercbfvgbel
 
-<img src="https://github.com/EvanCPSC/1st/assets/142952307/6725515a-0d2f-4e30-8552-d94fd65e7352" alt="Cloning the github repo visual example" width="800" />
+<vzt fep="uggcf://tvguho.pbz/RinaPCFP/1fg/nffrgf/142952307/6725515n-0q2s-4r30-8552-q94sq65r7352" nyg="Pybavat gur tvguho ercb ivfhny rknzcyr" jvqgu="800" />
 
-Now clone the forked repository to your machine. Go to your GitHub account, open
-the forked repository, click on the code button and then click the _copy to
-clipboard_ icon.
+Abj pybar gur sbexrq ercbfvgbel gb lbhe znpuvar. Tb gb lbhe TvgUho nppbhag, bcra
+gur sbexrq ercbfvgbel, pyvpx ba gur pbqr ohggba naq gura pyvpx gur _pbcl gb
+pyvcobneq_ vpba.
 
-Open a terminal and run the following git command: git clone "url you just
-copied" where "url you just copied" (without the quotation marks) is the url to
-this repository (your fork of this project). See the previous steps to obtain
-the url.
+Bcra n grezvany naq eha gur sbyybjvat tvg pbzznaq: tvg pybar "hey lbh whfg
+pbcvrq" jurer "hey lbh whfg pbcvrq" (jvgubhg gur dhbgngvba znexf) vf gur hey gb
+guvf ercbfvgbel (lbhe sbex bs guvf cebwrpg). Frr gur cerivbhf fgrcf gb bognva
+gur hey.
 
-<img src="https://github.com/EvanCPSC/1st/assets/142952307/fc40d06a-62d5-4ca3-bfcc-e80b3831f7d0" alt="Copy the repo URL visual example" height="400" />
+<vzt fep="uggcf://tvguho.pbz/RinaPCFP/1fg/nffrgf/142952307/sp40q06n-62q5-4pn3-ospp-r80o3831s7q0" nyg="Pbcl gur ercb HEY ivfhny rknzcyr" urvtug="400" />
 
-For example:
+Sbe rknzcyr:
 
-`git clone https://github.com/this-is-you/acmcsuf.com.git`
+`tvg pybar uggcf://tvguho.pbz/guvf-vf-lbh/npzpfhs.pbz.tvg`
 
-where `this-is-you` is your GitHub username. Here you're copying the contents of
-the first-contributions repository on GitHub to your computer.
+jurer `guvf-vf-lbh` vf lbhe TvgUho hfreanzr. Urer lbh'er pbclvat gur pbagragf bs
+gur svefg-pbagevohgvbaf ercbfvgbel ba TvgUho gb lbhe pbzchgre.
 
-## Create a branch
+## Perngr n oenapu
 
-Change to the repository directory on your computer (if you are not already
-there): `cd acmcsuf.com` Now create a branch using the git switch command:
-`git switch -c your-new-branch-name` For example:
-`git switch -c add-ethanthatonekid`
+Punatr gb gur ercbfvgbel qverpgbel ba lbhe pbzchgre (vs lbh ner abg nyernql
+gurer): `pq npzpfhs.pbz` Abj perngr n oenapu hfvat gur tvg fjvgpu pbzznaq:
+`tvg fjvgpu -p lbhe-arj-oenapu-anzr` Sbe rknzcyr:
+`tvg fjvgpu -p nqq-rgunagungbarxvq`
 
-## Make necessary changes and commit them
+## Znxr arprffnel punatrf naq pbzzvg gurz
 
-Create a new Markdown file inside `/collaborators` that looks like `gh-user.md`, 
-where `gh-user` is your GitHub username. Then, inside that file, include **one** 
-line in the following format:
-
-```
-[**@<your-gh-username>**](https://github.com/<your-gh-username>) [Description]
-```
-
-Replace where it says `<your-gh-username>` with your GitHub username, so that the 
-hyperlink directs to your GitHub profile. Then, add a short description of yourself! 
-At the end, it will be rendered in the HTML page with the following format:
-
-<img src="https://github.com/acmcsufoss/1st/assets/112128328/c10d7529-a745-4a8f-9a38-93b832cd52ed" alt="Markdown rendered in HTML page visual example" width="400" />
-
-Please refer to any of the example Markdown files from the list of `/contributors`!
-
-Add those changes to the branch you created using the `git add` command:
+Perngr n arj Znexqbja svyr vafvqr `/pbyynobengbef` gung ybbxf yvxr `tu-hfre.zq`,
+jurer `tu-hfre` vf lbhe TvgUho hfreanzr. Gura, vafvqr gung svyr, vapyhqr **bar**
+yvar va gur sbyybjvat sbezng:
 
 ```
-git add <your-gh-username>.md
+[**@<lbhe-tu-hfreanzr>**](uggcf://tvguho.pbz/<lbhe-tu-hfreanzr>) [Qrfpevcgvba]
 ```
 
-And commit them with a short description, using the `git commit` command:
+Ercynpr jurer vg fnlf `<lbhe-tu-hfreanzr>` jvgu lbhe TvgUho hfreanzr, fb gung gur
+ulcreyvax qverpgf gb lbhe TvgUho cebsvyr. Gura, nqq n fubeg qrfpevcgvba bs lbhefrys!
+Ng gur raq, vg jvyy or eraqrerq va gur UGZY cntr jvgu gur sbyybjvat sbezng:
+
+<vzt fep="uggcf://tvguho.pbz/npzpfhsbff/1fg/nffrgf/112128328/p10q7529-n745-4n8s-9n38-93o832pq52rq" nyg="Znexqbja eraqrerq va UGZY cntr ivfhny rknzcyr" jvqgu="400" />
+
+Cyrnfr ersre gb nal bs gur rknzcyr Znexqbja svyrf sebz gur yvfg bs `/pbagevohgbef`!
+
+Nqq gubfr punatrf gb gur oenapu lbh perngrq hfvat gur `tvg nqq` pbzznaq:
 
 ```
-git commit -m "Added <your-gh-username>.md"
+tvg nqq <lbhe-tu-hfreanzr>.zq
 ```
 
-replacing `<your-gh-username>` with your GitHub username :)
+Naq pbzzvg gurz jvgu n fubeg qrfpevcgvba, hfvat gur `tvg pbzzvg` pbzznaq:
 
-## Push changes to GitHub
+```
+tvg pbzzvg -z "Nqqrq <lbhe-tu-hfreanzr>.zq"
+```
 
-Push your changes using the command `git push`:
+ercynpvat `<lbhe-tu-hfreanzr>` jvgu lbhe TvgUho hfreanzr :)
 
-`git push origin -u add-your-branch-name`
+## Chfu punatrf gb TvgUho
 
-replacing `<add-your-branch-name>` with the name of the branch you created
-earlier.
+Chfu lbhe punatrf hfvat gur pbzznaq `tvg chfu`:
 
-## Submit your changes for review
+`tvg chfu bevtva -h nqq-lbhe-oenapu-anzr`
 
-If you go to your repository on GitHub, you'll see a `Compare & pull request`
-button. Click on that button.
+ercynpvat `<nqq-lbhe-oenapu-anzr>` jvgu gur anzr bs gur oenapu lbh perngrq
+rneyvre.
 
-<img src="https://github.com/EvanCPSC/1st/assets/142952307/fa97c205-7bde-45d6-94ce-141c98b14832" alt="Compare and pull request visual example" width="800" />
+## Fhozvg lbhe punatrf sbe erivrj
 
-Now submit the pull request.
+Vs lbh tb gb lbhe ercbfvgbel ba TvgUho, lbh'yy frr n `Pbzcner & chyy erdhrfg`
+ohggba. Pyvpx ba gung ohggba.
 
-<img src="https://github.com/EvanCPSC/1st/assets/142952307/7a6cde83-7287-4cdb-9adb-995675969f5f" alt="Creating the pull request visual example" width="800" />
+<vzt fep="uggcf://tvguho.pbz/RinaPCFP/1fg/nffrgf/142952307/sn97p205-7oqr-45q6-94pr-141p98o14832" nyg="Pbzcner naq chyy erdhrfg ivfhny rknzcyr" jvqgu="800" />
 
-Soon, someone will be merging all your changes into the master branch of this
-project. You will get a notification email once the changes have been merged.
+Abj fhozvg gur chyy erdhrfg.
+
+<vzt fep="uggcf://tvguho.pbz/RinaPCFP/1fg/nffrgf/142952307/7n6pqr83-7287-4pqo-9nqo-995675969s5s" nyg="Perngvat gur chyy erdhrfg ivfhny rknzcyr" jvqgu="800" />
+
+Fbba, fbzrbar jvyy or zretvat nyy lbhe punatrf vagb gur znfgre oenapu bs guvf
+cebwrpg. Lbh jvyy trg n abgvsvpngvba rznvy bapr gur punatrf unir orra zretrq.
 
 ---
 
-### CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION
+### PBATENGHYNGVBAF BA ZNXVAT LBHE SVEFG PBAGEVHOHGVBA
 
-Inspired by
-[First Contributions](https://github.com/firstcontributions/first-contributions#readme)
+Vafcverq ol
+[Svefg Pbagevohgvbaf](uggcf://tvguho.pbz/svefgpbagevohgvbaf/svefg-pbagevohgvbaf#ernqzr)
 
-Maintained with 💚 by [**@acmcsufoss**](https://github.com/acmcsufoss)
+Znvagnvarq jvgu 💚 ol [**@npzpfhsbff**](uggcf://tvguho.pbz/npzpfhsbff)
