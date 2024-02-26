@@ -59,10 +59,10 @@ where `gh-user` is your GitHub username. Then, inside that file, include **one**
 line in the following format:
 
 ```
-[**@<your-gh-username>**](https://github.com/<your-gh-username>) [Description]
+[**@your-gh-username**](https://github.com/your-gh-username): Some Description...
 ```
 
-Replace where it says `<your-gh-username>` with your GitHub username, so that the 
+Replace where it says `your-gh-username` with your GitHub username, so that the 
 hyperlink directs to your GitHub profile. Then, add a short description of yourself! 
 At the end, it will be rendered in the HTML page with the following format:
 
@@ -79,10 +79,10 @@ git add <your-gh-username>.md
 And commit them with a short description, using the `git commit` command:
 
 ```
-git commit -m "Added <your-gh-username>.md"
+git commit -m "Added your-gh-username.md"
 ```
 
-replacing `<your-gh-username>` with your GitHub username :)
+replacing `your-gh-username` with your GitHub username :)
 
 ## Push changes to GitHub
 
