@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const contributors = Object.values(
+const contributors: any[] = Object.values(
   import.meta.glob("../contributors/sp24/*.md", {
     eager: true,
   }),
