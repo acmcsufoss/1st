@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+const contributors = Object.values(
+  import.meta.glob("../contributors/sp24/*.md", {
+    eager: true,
+  }),
+);
+---
+
+<Layout title="Spring 2024 Contributors | 1st">
+  <h1>Welcome to First Contributions!</h1>
+
+  <p>
+    This is a repository dedicated for new members of the ACM at CSUF
+    <b class="oss">Open Source Software Team</b> to make their first contributions
+    to the acmcsufoss org! Let us walk through the steps so you can make your first
+    commit, pull request, or issue closing to become a contributor of our beloved
+    community!
+  </p>
+
+  <p>
+    Instructions on how to contribute can be found in the
+    <a href="https://github.com/acmcsufoss/1st#readme">README</a>. If you have
+    any questions, feel free to ask in the
+    <a href="https://acmcsuf.com/discord">#first-contributions</a> channel in our
+    Discord server.
+  </p>
+
+  <h2>References</h2>
+  <ul>
+    <li><a href="https://acmcsuf.com/1st">acmcsuf.com/1st</a></li>
+    <li>
+      <a href="https://github.com/firstcontributions/first-contributions#readme"
+        >First contributions
+      </a>
+    </li>
+  </ul>
+
+  <h2>List of contributors</h2>
+
+  <ul>
+    {
+      contributors.map((contributor) => (
+        <li>
+          <a href="https://github.com/26samaahmed">
+            <strong>{contributor.rawContent()}</strong>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<style>
+  h1 {
+    vertical-align: center;
+    text-align: center;
+  }
+
+  p > b.oss {
+    color: var(--color-oss-team);
+  }
+
+  a {
+    color: var(--color-link);
+  }
+
+  ul li p img {
+    width: 1.5rem;
+  }
+
+  @media screen and (max-width: 30rem) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+</style>
