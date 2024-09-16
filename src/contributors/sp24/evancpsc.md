@@ -1,1 +1,5 @@
-[**@evancpsc**](https://github.com/evancpsc): Bassist
+---
+name: "evancpsc"
+username: "evancpsc"
+message: "Bassist"
+---

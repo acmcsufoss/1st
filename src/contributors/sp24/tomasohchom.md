@@ -1,1 +1,5 @@
-[**@tomasohCHOM**](https://github.com/tomasohCHOM): Sveltist
+---
+name: "tomasohCHOM"
+username: "tomasohCHOM"
+message: "Sveltist"
+---

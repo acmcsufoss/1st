@@ -1,1 +1,5 @@
-[**@rathichandar**](https://github.com/rathichandar) [Cloud and web 3 Enthusiast]
+---
+name: "rathichandar"
+username: "rathichandar"
+message: "Cloud and web 3 Enthusiast"
+---

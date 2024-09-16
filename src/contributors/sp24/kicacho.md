@@ -1,1 +1,5 @@
-[**@kicacho**](https://github.com/<your-gh-username>) [Description] Sup. I'm most proficient in Python.
+---
+name: "kicacho"
+username: "kicacho"
+message: "Sup. I'm most proficient in Python."
+---

@@ -1,1 +1,5 @@
-[**@typos**](https://github.com/JOwen-ster): I love python and add me on discord `typos.`
+---
+name: "typos"
+username: "JOwen-ster"
+message: " I love python and add me on discord `typos.`"
+---

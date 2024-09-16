@@ -1,1 +1,5 @@
-[**Big O**](https://github.com/oscisn93): VIM Enthusiast
+---
+name: "Big O"
+username: "oscisn93"
+message: "VIM Enthusiast"
+---

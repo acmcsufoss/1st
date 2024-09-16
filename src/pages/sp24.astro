@@ -1,6 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const contributors: any[] = Object.values(
+
+type MarkdownEntry = {
+  frontmatter: {
+    name: string;
+    username: string;
+    message: string;
+  };
+};
+
+const contributors: MarkdownEntry[] = Object.values(
   import.meta.glob("../contributors/sp24/*.md", {
     eager: true,
   }),
@@ -42,9 +51,12 @@ const contributors: any[] = Object.values(
     {
       contributors.map((contributor) => (
         <li>
-          <a href="https://github.com/26samaahmed">
-            <strong>{contributor.rawContent()}</strong>
-          </a>
+          <p>
+            <a href={`https://github.com/${contributor.frontmatter.username}`}>
+              <strong>{contributor.frontmatter.name}:</strong>
+            </a>{" "}
+            {contributor.frontmatter.message}
+          </p>
         </li>
       ))
     }
@@ -52,9 +64,19 @@ const contributors: any[] = Object.values(
 </Layout>
 
 <style>
+  body {
+    max-width: 60ch;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+  }
+
   h1 {
     vertical-align: center;
     text-align: center;
+  }
+
+  p {
+    margin: 0.125rem;
   }
 
   p > b.oss {

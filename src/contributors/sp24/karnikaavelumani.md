@@ -1,1 +1,5 @@
-[**@karnikaavelumani**](https://karni.codes/): <img alt="Karni" src="https://avatars.githubusercontent.com/u/60043611?v=4" width="100" />
+---
+name: "karnikaavelumani"
+username: "karni.codes"
+message: "Hii"
+---

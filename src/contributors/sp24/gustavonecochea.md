@@ -1,1 +1,5 @@
-[**@gnecochea**](https://github.com/gnecochea/) Hello, I'm a cs student here at csuf
+---
+name: "gnecochea"
+username: "gnecochea"
+message: "Hello, I'm a cs student here at csuf"
+---
