@@ -1,5 +1,6 @@
 ---
 name: "tomasohCHOM"
-username: "tomasohCHOM"
+githubUsername: "tomasohCHOM"
 message: "Sveltist"
+extraLink: ""
 ---

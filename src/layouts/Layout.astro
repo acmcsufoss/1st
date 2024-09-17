@@ -29,7 +29,7 @@ const { title } = Astro.props;
     line-height: 1.5;
     font-weight: 400;
 
-    color-scheme: light dark;
+    color-scheme: dark;
     background-color: var(--color-primary);
     color: var(--color-contrast);
 
@@ -42,23 +42,21 @@ const { title } = Astro.props;
     --ff-regular: "Poppins", "sans-serif";
     --ff-custom: "Fira Code", "monospace";
 
-    --color-primary: #ffffff;
-    --color-secondary: #e5e5e5;
-    --color-contrast: #393939;
-    --color-oss-team: #11d4b1;
-    --color-link: #0097a7;
+    --color-primary: #212121;
+    --color-secondary: #313332;
+    --color-contrast: #f5f5f5;
 
-    @media (prefers-color-scheme: dark) {
-      --color-primary: #1a1a1a;
-      --color-secondary: #2d2d2d;
-      --color-contrast: #f5f5f5;
-      --color-link: #4dd0e1;
-    }
+    --color-oss-team: #11d4b1;
+    --color-link: #4dd0e1;
   }
 
   *,
   *::before,
   *::after {
     box-sizing: border-box;
+  }
+
+  a {
+    color: var(--color-link);
   }
 </style>

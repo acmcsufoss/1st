@@ -1,5 +1,6 @@
 ---
 name: "karnikaavelumani"
-username: "karni.codes"
+githubUsername: "karni.codes"
 message: "Hii"
+extraLink: "https://karni.codes"
 ---

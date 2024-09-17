@@ -1,5 +1,6 @@
 ---
 name: "akanksh5"
-username: "akanksh5"
+githubUsername: "akanksh5"
 message: "Hello there!"
+extraLink: ""
 ---

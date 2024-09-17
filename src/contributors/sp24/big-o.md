@@ -1,5 +1,6 @@
 ---
 name: "Big O"
-username: "oscisn93"
+githubUsername: "oscisn93"
 message: "VIM Enthusiast"
+extraLink: ""
 ---

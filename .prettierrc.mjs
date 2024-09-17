@@ -2,5 +2,5 @@
 export default {
   plugins: ["prettier-plugin-astro"],
   htmlWhitespaceSensitivity: "css",
-  singleQuote: "false",
+  singleQuote: false,
 };

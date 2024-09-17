@@ -1,5 +1,6 @@
 ---
 name: "JoelCodingWindigan"
-username: "JoelCodingWindigan"
+githubUsername: "JoelCodingWindigan"
 message: "Sup"
+extraLink: ""
 ---

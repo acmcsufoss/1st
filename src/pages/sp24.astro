@@ -1,11 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/layout.astro";
 
 type MarkdownEntry = {
   frontmatter: {
     name: string;
-    username: string;
+    githubUsername: string;
     message: string;
+    extraLink: string;
   };
 };
 
@@ -17,53 +18,64 @@ const contributors: MarkdownEntry[] = Object.values(
 ---
 
 <Layout title="Spring 2024 Contributors | 1st">
-  <h1>Welcome to First Contributions!</h1>
+  <main>
+    <h1>Welcome to First Contributions!</h1>
 
-  <p>
-    This is a repository dedicated for new members of the ACM at CSUF
-    <b class="oss">Open Source Software Team</b> to make their first contributions
-    to the acmcsufoss org! Let us walk through the steps so you can make your first
-    commit, pull request, or issue closing to become a contributor of our beloved
-    community!
-  </p>
+    <p>
+      This is a repository dedicated for new members of the ACM at CSUF
+      <b class="oss">Open Source Software Team</b> to make their first contributions
+      to the acmcsufoss org! Let us walk through the steps so you can make your first
+      commit, pull request, or issue closing to become a contributor of our beloved
+      community!
+    </p>
 
-  <p>
-    Instructions on how to contribute can be found in the
-    <a href="https://github.com/acmcsufoss/1st#readme">README</a>. If you have
-    any questions, feel free to ask in the
-    <a href="https://acmcsuf.com/discord">#first-contributions</a> channel in our
-    Discord server.
-  </p>
+    <p>
+      Instructions on how to contribute can be found in the
+      <a href="https://github.com/acmcsufoss/1st#readme">README</a>. If you have
+      any questions, feel free to ask in the
+      <a href="https://acmcsuf.com/discord">#first-contributions</a> channel in our
+      Discord server.
+    </p>
 
-  <h2>References</h2>
-  <ul>
-    <li><a href="https://acmcsuf.com/1st">acmcsuf.com/1st</a></li>
-    <li>
-      <a href="https://github.com/firstcontributions/first-contributions#readme"
-        >First contributions
-      </a>
-    </li>
-  </ul>
+    <h2>References</h2>
+    <ul>
+      <li>
+        <a href="https://acmcsuf.com/1st">acmcsuf.com/1st</a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/firstcontributions/first-contributions#readme"
+          >First contributions
+        </a>
+      </li>
+    </ul>
 
-  <h2>List of contributors</h2>
+    <h2>List of contributors</h2>
 
-  <!-- prettier-ignore -->
-  <ul>
-    {
-      contributors.map((contributor) => (
-        <li>
-          <strong>
-            <a href={contributor.frontmatter.username}>
-              {contributor.frontmatter.name}</a>:
-          </strong>
-          {contributor.frontmatter.message}
-        </li>
-      ))
-    }
-  </ul>
+    <!-- prettier-ignore -->
+    <ul>
+      {
+        contributors.map((contributor) => (
+          <li>
+            <strong>
+              <a
+                target="_blank"
+                href={
+                  contributor.frontmatter.extraLink !== ""
+                    ? contributor.frontmatter.extraLink
+                    : `https://github.com/${contributor.frontmatter.githubUsername}`
+                }
+              >{contributor.frontmatter.name}</a>:
+            </strong>
+            {contributor.frontmatter.message}
+          </li>
+        ))
+      }
+    </ul>
+  </main>
 
   <style>
-    body {
+    main {
       max-width: 60ch;
       margin: 2rem auto;
       padding: 1rem 2rem;
@@ -75,15 +87,16 @@ const contributors: MarkdownEntry[] = Object.values(
     }
 
     p {
-      margin: 0.125rem;
+      margin-block: 1.25rem;
     }
 
     p > b.oss {
       color: var(--color-oss-team);
     }
 
-    a {
+    li > strong {
       color: var(--color-link);
+      font-weight: bold;
     }
 
     ul li p img {

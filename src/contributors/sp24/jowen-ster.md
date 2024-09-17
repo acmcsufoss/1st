@@ -1,5 +1,6 @@
 ---
 name: "typos"
-username: "JOwen-ster"
-message: " I love python and add me on discord `typos.`"
+githubUsername: "JOwen-ster"
+message: " I love python and add me on discord: typos."
+extraLink: ""
 ---

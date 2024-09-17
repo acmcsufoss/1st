@@ -1,5 +1,6 @@
 ---
 name: "MarkRyanGarcia"
-username: "MarkRyanGarcia"
+githubUsername: "MarkRyanGarcia"
 message: "How declare variable?"
+extraLink: ""
 ---

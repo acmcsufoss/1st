@@ -1,7 +1,6 @@
 ---
 name: "jeeth25"
-username: "jeeth25"
+githubUsername: "jeeth25"
 message: "Hi, Jeet here."
+extraLink: ""
 ---
-
-[**@jeeth25**](https://github.com/jeeth25): Hi, Jeet here.

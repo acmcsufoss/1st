@@ -1,5 +1,6 @@
 ---
 name: "mattulau"
-username: "mattulau"
+githubUsername: "mattulau"
 message: "cheese enthusiast"
+extraLink: ""
 ---
