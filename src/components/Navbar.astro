@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+---
+
+<nav>
+  <span class="left">
+    <a href="/1st"> First Contributions </a>
+  </span>
+  <div class="right">
+    <div>
+      <a class="center" target="_blnk" href="http://github.com/acmcsufoss">
+        <Image
+          src="/1st/ossIcon.png"
+          alt="Open Source Software Team Icon"
+          width={32}
+          height={32}
+        />
+        acmcsufoss
+      </a>
+    </div>
+    <div>
+      <a class="center" target="_blank" href="http://acmcsuf.com">
+        <Image
+          src="/1st/acmIcon.png"
+          alt="ACM at CSUF Icon"
+          width={32}
+          height={32}
+        />
+        acmCSUF
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+
+  nav > .left {
+    font-weight: bold;
+  }
+
+  nav > .right {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+</style>

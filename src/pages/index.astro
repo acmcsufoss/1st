@@ -1,9 +1,42 @@
 ---
+import Box from "../components/Box.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="1st | ACM at CSUF Open Source Software Team">
-  <h1>ACM CSUF Open Source Software Team | First Contributions</h1>
-  <a href="/1st/sp24">Spring 2024 Contributors</a>
-  <a href="/1st/fa24">Fall 2024 Contributors</a>
+  <!-- <Box /> -->
+
+  <main>
+    <h1>FIRST CONTRIBUTIONS</h1>
+    <h2>
+      <span class="oss"> Open Source Software </span> Team | ACM at CSUF
+    </h2>
+    <div class="semester-links">
+      <a href="/1st/fa24">Fall 2024 Contributors</a>
+      <a href="/1st/sp24">Spring 2024 Contributors</a>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  h1 {
+    margin: 0;
+    font-size: 4rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .semester-links {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 1rem;
+  }
+
+  .semester-links > a {
+    color: white;
+  }
+</style>
