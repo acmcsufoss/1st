@@ -47,57 +47,57 @@ const contributors: MarkdownEntry[] = Object.values(
 
   <h2>List of contributors</h2>
 
+  <!-- prettier-ignore -->
   <ul>
     {
       contributors.map((contributor) => (
         <li>
-          <p>
-            <a href={`https://github.com/${contributor.frontmatter.username}`}>
-              <strong>{contributor.frontmatter.name}:</strong>
-            </a>{" "}
-            {contributor.frontmatter.message}
-          </p>
+          <strong>
+            <a href={contributor.frontmatter.username}>
+              {contributor.frontmatter.name}</a>:
+          </strong>
+          {contributor.frontmatter.message}
         </li>
       ))
     }
   </ul>
-</Layout>
 
-<style>
-  body {
-    max-width: 60ch;
-    margin: 2rem auto;
-    padding: 1rem 2rem;
-  }
+  <style>
+    body {
+      max-width: 60ch;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+    }
 
-  h1 {
-    vertical-align: center;
-    text-align: center;
-  }
-
-  p {
-    margin: 0.125rem;
-  }
-
-  p > b.oss {
-    color: var(--color-oss-team);
-  }
-
-  a {
-    color: var(--color-link);
-  }
-
-  ul li p img {
-    width: 1.5rem;
-  }
-
-  @media screen and (max-width: 30rem) {
     h1 {
-      font-size: 1.5rem;
+      vertical-align: center;
+      text-align: center;
     }
 
-    h2 {
-      font-size: 1.25rem;
+    p {
+      margin: 0.125rem;
     }
-  }
-</style>
+
+    p > b.oss {
+      color: var(--color-oss-team);
+    }
+
+    a {
+      color: var(--color-link);
+    }
+
+    ul li p img {
+      width: 1.5rem;
+    }
+
+    @media screen and (max-width: 30rem) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</Layout>
