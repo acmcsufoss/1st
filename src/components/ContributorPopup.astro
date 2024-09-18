@@ -1,0 +1,53 @@
+---
+const {
+  name,
+  githubUsername,
+  message,
+  description,
+  programmingInterests,
+  hobbies,
+  extraLink,
+} = Astro.props;
+---
+
+<div class="popover" id="popover">
+  <h2>Hello</h2>
+</div>
+<div class="window-overlay"></div>
+
+<style>
+  .popover {
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    width: min(30em, 85vw);
+    z-index: 4;
+    padding: 1.25rem;
+    background-color: rgb(var(--color-primary));
+    box-shadow: 0 3px 1rem rgba(16, 19, 21, 0.1);
+    border-radius: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%);
+    transition: all 0.125s ease-in;
+  }
+
+  .popover.open {
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .window-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(213, 213, 213, 0.25);
+    z-index: 3;
+    transition: 0.25s;
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>

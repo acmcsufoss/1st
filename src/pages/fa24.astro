@@ -1,12 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import ContributorPopup from "../components/ContributorPopup.svelte";
 
 type MarkdownEntry = {
   frontmatter: {
     name: string;
     githubUsername: string;
     message: string;
+    description: string;
+    programmingInterests: string;
+    hobbies: string;
     extraLink: string;
   };
 };
@@ -19,6 +23,8 @@ const contributors: MarkdownEntry[] = Object.values(
 ---
 
 <Layout title="Fall 2024 Contributors | 1st">
+  <ContributorPopup client:only="svelte" />
+
   <main>
     <h1>Fall 2024 Contributors</h1>
     <section class="contributors">
@@ -26,7 +32,8 @@ const contributors: MarkdownEntry[] = Object.values(
         contributors.map((contributor) => (
           <div class="contributor">
             <Image
-              src="/1st/acmIcon.png"
+              class="profile-image"
+              src={`https://github.com/${contributor.frontmatter.githubUsername}.png`}
               alt="ACM at CSUF Icon"
               width={32}
               height={32}
@@ -40,7 +47,11 @@ const contributors: MarkdownEntry[] = Object.values(
 </Layout>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
   main {
+    max-width: 1024px;
+    margin-inline: auto;
     display: grid;
     align-items: center;
     justify-content: center;
@@ -54,7 +65,7 @@ const contributors: MarkdownEntry[] = Object.values(
     display: grid;
     gap: 1rem;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contributor {
@@ -67,9 +78,38 @@ const contributors: MarkdownEntry[] = Object.values(
     border: 2px solid rgb(var(--color-secondary));
     background-color: rgba(var(--color-secondary), 0.6);
     transition: background-color 150ms ease;
+    font-size: 0.875rem;
+    font-weight: 500;
+    overflow-x: hidden;
   }
 
   .contributor:hover {
     background-color: rgba(var(--color-secondary), 0.9);
+  }
+
+  .profile-image {
+    border-radius: 50%;
+  }
+
+  @media screen and (min-width: 640px) {
+    .contributors {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contributor {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .contributors {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .contributors {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 </style>
