@@ -8,10 +8,10 @@ function getRandom(min: number, max: number) {
 function generateRandomStyles() {
   const randomColor = boxColors[Math.floor(Math.random() * boxColors.length)];
   const randomOpacity = getRandom(0.2, 1);
-  const randomLeft = `${getRandom(30, 90)}%`;
+  const randomLeft = `${getRandom(10, 90)}%`;
   const randomTop = `${getRandom(10, 80)}%`;
   const randomDuration = `${getRandom(5, 15)}s`;
-  const randomDelay = `${getRandom(0, 5)}s`;
+  const randomDelay = `${getRandom(0, 2)}s`;
 
   return {
     backgroundColor: randomColor,

@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import "../globals.css";
 
 interface Props {
   title: string;
@@ -27,75 +28,3 @@ const { title } = Astro.props;
     </div>
   </body>
 </html>
-
-<style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
-  :root {
-    font-family: var(--ff-regular);
-    line-height: 1.5;
-    font-weight: 400;
-
-    color-scheme: dark;
-    background-color: var(--color-primary);
-    color: var(--color-contrast);
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-
-    --ff-regular: "Poppins", "sans-serif";
-    --ff-custom: "Fira Code", "monospace";
-
-    --color-primary: #212121;
-    --color-secondary: #2f2f2f;
-    --color-contrast: #f5f5f5;
-
-    --color-oss-team: #11d4b1;
-    --color-link: #4dd0e1;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  a {
-    color: white;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: rgb(75, 75, 75);
-    transition: text-decoration 150ms ease;
-  }
-
-  a:hover {
-    text-decoration-color: white;
-  }
-
-  .custom-link {
-    text-decoration: underline;
-    color: var(--color-link);
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-  }
-
-  #app {
-    padding: 1rem 2rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin-inline: auto;
-  }
-
-  .oss {
-    color: var(--color-oss-team);
-  }
-</style>
