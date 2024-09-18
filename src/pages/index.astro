@@ -9,7 +9,12 @@ import Layout from "../layouts/Layout.astro";
   <main>
     <h1>FIRST CONTRIBUTIONS</h1>
     <h2>
-      <span class="oss"> Open Source Software </span> Team | ACM at CSUF
+      <div class="subtitle">
+        <span>
+          <span class="oss"> Open Source Software </span> Team
+        </span>
+        <span> ACM at CSUF </span>
+      </div>
     </h2>
     <div class="semester-links">
       <a href="/1st/fa24">Fall 2024 Contributors</a>
@@ -21,12 +26,17 @@ import Layout from "../layouts/Layout.astro";
 <style>
   h1 {
     margin: 0;
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
   h2 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    display: flex;
+    flex-direction: column;
   }
 
   .semester-links {
@@ -38,5 +48,15 @@ import Layout from "../layouts/Layout.astro";
 
   .semester-links > a {
     color: white;
+  }
+
+  @media screen and (min-width: 640px) {
+    h1 {
+      font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
   }
 </style>

@@ -15,7 +15,7 @@ import { Image } from "astro:assets";
           width={32}
           height={32}
         />
-        acmcsufoss
+        <span class="desktop"> acmcsufoss </span>
       </a>
     </div>
     <div>
@@ -26,7 +26,7 @@ import { Image } from "astro:assets";
           width={32}
           height={32}
         />
-        acmCSUF
+        <span class="desktop"> acmCSUF </span>
       </a>
     </div>
   </div>
@@ -54,5 +54,15 @@ import { Image } from "astro:assets";
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  @media screen and (min-width: 640px) {
+    .desktop {
+      display: inline;
+    }
   }
 </style>
