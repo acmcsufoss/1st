@@ -1,29 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 :root {
+  --ff-regular: "Poppins", "sans-serif";
+  --ff-custom: "Fira Code", "monospace";
+
+  --color-primary: 33, 33, 33;
+  --color-secondary: 47, 47, 47;
+  --color-contrast: 245, 245, 245;
+
+  --color-oss-team: 17, 212, 177;
+  --color-link: 77, 208, 225;
+
   font-family: var(--ff-regular);
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: dark;
-  background-color: var(--color-primary);
-  color: var(--color-contrast);
+  background-color: rgb(var(--color-primary));
+  color: rgb(var(--color-contrast));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
-  --ff-regular: "Poppins", "sans-serif";
-  --ff-custom: "Fira Code", "monospace";
-
-  --color-primary: #212121;
-  --color-secondary: #2f2f2f;
-  --color-contrast: #f5f5f5;
-
-  --color-oss-team: #11d4b1;
-  --color-link: #4dd0e1;
 }
 
 *,
@@ -46,7 +46,7 @@ a:hover {
 
 .custom-link {
   text-decoration: underline;
-  color: var(--color-link);
+  color: rgb(var(--color-link));
 }
 
 body {
@@ -65,5 +65,5 @@ body {
 }
 
 .oss {
-  color: var(--color-oss-team);
+  color: rgb(var(--color-oss-team));
 }

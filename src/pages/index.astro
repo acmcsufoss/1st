@@ -27,17 +27,18 @@ import Layout from "../layouts/Layout.astro";
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
   main {
-    padding: 1rem;
+    padding: 1rem 2rem;
     max-width: max-content;
     border-radius: 1.5rem;
-    border: 2px solid var(--color-secondary);
-    background-color: var(--color-secondary);
+    border: 2px solid rgb(var(--color-secondary));
+    background-color: rgba(var(--color-secondary), 0.7);
     z-index: 10;
   }
 
   h1 {
     margin: 0;
     font-size: 2rem;
+    word-break: break-all;
   }
 
   h2 {
@@ -54,7 +55,6 @@ import Layout from "../layouts/Layout.astro";
     display: flex;
     flex-direction: column;
     width: max-content;
-    padding: 1rem;
   }
 
   .semester-links > a {
@@ -62,12 +62,21 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @media screen and (min-width: 768px) {
+    main {
+      padding: 1rem 1.25rem;
+    }
+
     h1 {
-      font-size: 4rem;
+      font-size: 3.75rem;
+      word-wrap: normal;
     }
 
     h2 {
       font-size: 2.5rem;
+    }
+
+    .semester-links {
+      padding: 1rem;
     }
   }
 </style>
