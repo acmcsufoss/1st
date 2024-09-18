@@ -1,4 +1,5 @@
 ---
+import DiagonalArrow from "../components/DiagonalArrow.astro";
 import FloatingBoxes from "../components/FloatingBoxes.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -17,8 +18,14 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </h2>
     <div class="semester-links">
-      <a href="/1st/fa24">Fall 2024 Contributors</a>
-      <a href="/1st/sp24">Spring 2024 Contributors</a>
+      <a class="arrow-link" href="/1st/fa24">
+        <span> Fall 2024 Contributors </span>
+        <DiagonalArrow />
+      </a>
+      <a class="arrow-link" href="/1st/sp24">
+        <span> Spring 2024 Contributors </span>
+        <DiagonalArrow />
+      </a>
     </div>
   </main>
 </Layout>

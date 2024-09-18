@@ -1,8 +1,9 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
+  import CloseIcon from "./CloseIcon.svelte";
 
-  let isOpen = true;
-  // export let contributor: any;
+  export let isOpen = false;
+  export let contributor: any;
 
   function toggleContainer() {
     isOpen = !isOpen;
@@ -16,8 +17,10 @@
     in:fly={{ y: 40, duration: 150 }}
     out:fly={{ y: 40, duration: 150 }}
   >
-    <button class="custom-close-btn" on:click={toggleContainer}> X </button>
-    <h2>Hello</h2>
+    <button class="custom-close-btn" on:click={toggleContainer}>
+      <CloseIcon />
+    </button>
+    <h2>{contributor.frontmatter.name}</h2>
   </div>
 
   <div
