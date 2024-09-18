@@ -1,0 +1,58 @@
+---
+const boxColors = ["#11d4b1", "#035a4f", "#333333"];
+
+function getRandom(min: number, max: number) {
+  return Math.random() * (max - min) + min;
+}
+
+function generateRandomStyles() {
+  const randomColor = boxColors[Math.floor(Math.random() * boxColors.length)];
+  const randomOpacity = getRandom(0.2, 1);
+  const randomLeft = `${getRandom(30, 90)}%`;
+  const randomTop = `${getRandom(10, 80)}%`;
+  const randomDuration = `${getRandom(5, 15)}s`;
+  const randomDelay = `${getRandom(0, 5)}s`;
+
+  return {
+    backgroundColor: randomColor,
+    opacity: randomOpacity,
+    left: randomLeft,
+    top: randomTop,
+    animationDuration: randomDuration,
+    animationDelay: randomDelay,
+  };
+}
+
+const numBoxes = 50;
+const boxes = Array.from({ length: numBoxes }, () => generateRandomStyles());
+---
+
+<div class="container">
+  {boxes.map((style) => <div class="box" style={style} />)}
+</div>
+
+<!-- <div class="box"></div> -->
+
+<style>
+  .box {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    border-radius: 0.25rem;
+    background-color: #11d4b1;
+    animation: float infinite alternate ease-in-out;
+    animation-duration: 7s;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(
+        50px,
+        50px
+      ); /* Adjust this to control the floating range */
+    }
+  }
+</style>
