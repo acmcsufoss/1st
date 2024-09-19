@@ -189,8 +189,7 @@
     padding-inline: 1rem;
     margin-top: 1rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     gap: 2rem;
   }
 
@@ -216,14 +215,14 @@
     display: grid;
     gap: 0.25rem;
   }
-  .card-layout > .left > .links {
-    display: flex;
-    gap: 1rem;
+
+  .card-layout > .right > div {
+    font-size: 0.875rem;
   }
 
-  @media screen and (min-width: 640px) {
-    .card-layout {
-      flex-direction: row;
-    }
+  .card-layout > .left > .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 </style>
