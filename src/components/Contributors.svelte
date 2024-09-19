@@ -1,7 +1,8 @@
 <script lang="ts">
   import ContributorPopup from "./ContributorPopup.svelte";
+  import type { Fa2024MarkdownEntry } from "../types";
 
-  export let contributors: any[];
+  export let contributors: Fa2024MarkdownEntry[];
 
   let isContributorDialogOpen = false;
   let contributorIndex = 0;
@@ -10,12 +11,13 @@
     contributorIndex = i;
     isContributorDialogOpen = true;
   }
+
+  $: contributor = contributors[contributorIndex];
 </script>
 
-<ContributorPopup
-  contributor={contributors[contributorIndex]}
-  bind:isOpen={isContributorDialogOpen}
-/>
+{#key contributorIndex}
+  <ContributorPopup bind:contributor bind:isOpen={isContributorDialogOpen} />
+{/key}
 
 <section class="contributors">
   {#each contributors as contributor, i}

@@ -1,21 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Contributors from "../components/Contributors.svelte";
+import type { Fa2024MarkdownEntry } from "../types";
 
-type MarkdownEntry = {
-  frontmatter: {
-    name: string;
-    githubUsername: string;
-    message: string;
-    description: string;
-    programmingInterests: string;
-    hobbies: string;
-    extraLink: string;
-  };
-};
-
-const contributors: MarkdownEntry[] = Object.values(
-  import.meta.glob("../contributors/sp24/*.md", {
+const contributors: Fa2024MarkdownEntry[] = Object.values(
+  import.meta.glob("../contributors/fa24/*.md", {
     eager: true,
   }),
 );

@@ -1,26 +1,81 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
   import CloseIcon from "./CloseIcon.svelte";
+  import type { Fa2024MarkdownEntry } from "../types";
 
   export let isOpen = false;
-  export let contributor: any;
+  export let contributor: Fa2024MarkdownEntry;
+
+  const {
+    name,
+    githubUsername,
+    message,
+    about,
+    programmingInterests,
+    hobbies,
+    extraLink,
+  } = contributor.frontmatter;
 
   function toggleContainer() {
     isOpen = !isOpen;
   }
 </script>
 
-{#key isOpen}
+{#key [isOpen, contributor]}
   <div
     class="custom-modal"
     class:containerOpen={isOpen}
-    in:fly={{ y: 40, duration: 150 }}
     out:fly={{ y: 40, duration: 150 }}
   >
     <button class="custom-close-btn" on:click={toggleContainer}>
       <CloseIcon />
     </button>
-    <h2>{contributor.frontmatter.name}</h2>
+
+    <h2>{name}</h2>
+
+    <div class="card-layout">
+      <div class="message">
+        {message}
+      </div>
+      <div class="bubble-1"></div>
+      <div class="bubble-2"></div>
+      <div class="bubble-3"></div>
+      <div class="bubble-4"></div>
+
+      <div class="left">
+        <img
+          src="https://github.com/{githubUsername}.png"
+          alt="{name} GitHub image"
+        />
+        <div class="links">
+          <a target="_blank" href="https://github.com/{githubUsername}">
+            GitHub Profile
+          </a>
+          {#if extraLink !== ""}
+            <a target="_blank" href={extraLink}> External Link </a>
+          {/if}
+        </div>
+      </div>
+
+      <div class="right">
+        <div>
+          <h3>GitHub</h3>
+          <p>{githubUsername}</p>
+        </div>
+        <div>
+          <h3>About</h3>
+          <p>{about}</p>
+        </div>
+        <div>
+          <h3>Programming Interests</h3>
+          <p>{programmingInterests}</p>
+        </div>
+        <div>
+          <h3>Hobbies</h3>
+          <p>{hobbies}</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div
@@ -79,5 +134,96 @@
 
   .custom-overlay-active {
     display: block;
+  }
+
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  .message {
+    position: absolute;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    top: -42%;
+    background-color: rgb(var(--color-secondary));
+  }
+
+  .bubble-1,
+  .bubble-2,
+  .bubble-3,
+  .bubble-4 {
+    background-color: rgb(var(--color-secondary));
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .bubble-1 {
+    width: 2rem;
+    height: 2rem;
+    top: -38%;
+    left: -5%;
+  }
+  .bubble-2 {
+    width: 1.5rem;
+    height: 1.5rem;
+    top: -22%;
+    left: -8%;
+  }
+  .bubble-3 {
+    width: 1.25rem;
+    height: 1.25rem;
+    top: -10%;
+    left: -4%;
+  }
+  .bubble-4 {
+    width: 1rem;
+    height: 1rem;
+    top: 2%;
+    left: 0;
+  }
+
+  .card-layout {
+    position: relative;
+    padding-inline: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .card-layout > .left {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+
+  .card-layout > .left a {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.75rem;
+    background-color: rgb(var(--color-secondary));
+    text-align: center;
+  }
+
+  .card-layout img {
+    border-radius: 50%;
+    width: 10rem;
+  }
+
+  .card-layout > .right {
+    display: grid;
+    gap: 0.25rem;
+  }
+  .card-layout > .left > .links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: 640px) {
+    .card-layout {
+      flex-direction: row;
+    }
   }
 </style>
