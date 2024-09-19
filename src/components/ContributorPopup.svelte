@@ -96,7 +96,7 @@
     top: 55%;
     z-index: 20;
     display: none;
-    width: min(35rem, 90vw);
+    width: min(40rem, 90vw);
     max-height: 400px;
     transform: translate(-50%, -50%);
     border-radius: 0.5rem;
