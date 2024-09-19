@@ -1,9 +1,9 @@
 ---
 name: "Tomas Oh"
 githubUsername: "tomasohCHOM"
-message: "https://acmcsuf.com/-------a-"
-about: "Hiii everyone, welcome to First Contributions! I'm Tomas, 3rd year CS and ACM OSS TL."
-programmingInterests: "Web Dev, CLI, Vim"
-hobbies: "Rock Climbing, Soccer, Gaming"
+message: "HII Hello World!"
+about: "I'm Tomas, 3rd year Computer Science major"
+programmingInterests: "Web dev, CLI, Vim"
+hobbies: "Rock climbing, soccer, video games"
 extraLink: "https://chom.vercel.app"
----
+--
