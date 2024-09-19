@@ -73,7 +73,7 @@ Please refer to any of the example Markdown files from the list of `/contributor
 
 At the end, it will be rendered in the HTML page with the following format:
 
-<img src="https://github.com/acmcsufoss/1st/assets/112128328/c10d7529-a745-4a8f-9a38-93b832cd52ed" alt="Markdown rendered in HTML page visual example" width="400" />
+<img src="https://github.com/user-attachments/assets/5a8a8e94-374c-4dd6-8776-5053ebe9e503" alt="Markdown rendered in HTML page visual example" width="400" />
 
 Add those changes to the branch you created using the `git add` command:
 
