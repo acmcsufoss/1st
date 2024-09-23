@@ -1,7 +1,7 @@
 ---
 name: "Harrison Thayer"
 githubUsername: "harrisonthayer04"
-message: "Hi I'm Harrison, I'm a thirda year CS major at CSUF."
+message: "Hi I'm Harrison, I'm a third year CS major at CSUF."
 about: ""
 programmingInterests: "Machine Learning / AI"
 hobbies: "Gaming, Working Out"

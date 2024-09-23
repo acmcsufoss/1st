@@ -37,6 +37,7 @@
       <div class="message">
         {message}
       </div>
+
       <div class="bubble-1"></div>
       <div class="bubble-2"></div>
       <div class="bubble-3"></div>
@@ -58,22 +59,30 @@
       </div>
 
       <div class="right">
-        <div>
-          <h3>GitHub</h3>
-          <p>{githubUsername}</p>
-        </div>
-        <div>
-          <h3>About</h3>
-          <p>{about}</p>
-        </div>
-        <div>
-          <h3>Programming Interests</h3>
-          <p>{programmingInterests}</p>
-        </div>
-        <div>
-          <h3>Hobbies</h3>
-          <p>{hobbies}</p>
-        </div>
+        {#if githubUsername}
+          <div>
+            <h3>GitHub</h3>
+            <p>{githubUsername}</p>
+          </div>
+        {/if}
+        {#if about}
+          <div>
+            <h3>About</h3>
+            <p>{about}</p>
+          </div>
+        {/if}
+        {#if programmingInterests}
+          <div>
+            <h3>Programming Interests</h3>
+            <p>{programmingInterests}</p>
+          </div>
+        {/if}
+        {#if hobbies}
+          <div>
+            <h3>Hobbies</h3>
+            <p>{hobbies}</p>
+          </div>
+        {/if}
       </div>
     </div>
   </div>
@@ -212,7 +221,8 @@
   }
 
   .card-layout > .right {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 0.25rem;
   }
 
