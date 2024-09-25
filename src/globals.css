@@ -66,4 +66,5 @@ body {
 
 .oss {
   color: rgb(var(--color-oss-team));
+  font-weight: bold;
 }
