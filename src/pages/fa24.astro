@@ -49,6 +49,11 @@ const boxStyles = [
 ];
 ---
 
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+/>
+
 <Layout title="Fall 2024 Contributors | 1st">
   <main>
     {boxStyles.map((boxStyle) => <Box style={boxStyle} float={false} />)}
@@ -59,8 +64,6 @@ const boxStyles = [
 </Layout>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
   main {
     max-width: 1024px;
     margin-inline: auto;
