@@ -1,6 +1,5 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
-  import CloseIcon from "./CloseIcon.svelte";
   import type { Fa2024MarkdownEntry } from "../types";
 
   export let isOpen = false;
@@ -28,7 +27,7 @@
     out:fly={{ y: 40, duration: 150 }}
   >
     <button class="custom-close-btn" on:click={toggleContainer}>
-      <CloseIcon />
+      <img src="/1st/closeIcon.svg" alt="Close Icon" />
     </button>
 
     <h2>{name}</h2>
