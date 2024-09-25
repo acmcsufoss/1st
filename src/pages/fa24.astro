@@ -2,16 +2,52 @@
 import Layout from "../layouts/Layout.astro";
 import Contributors from "../components/Contributors.svelte";
 import type { Fa2024MarkdownEntry } from "../types";
+import Box from "../components/Box.astro";
 
 const contributors: Fa2024MarkdownEntry[] = Object.values(
   import.meta.glob("../contributors/fa24/*.md", {
     eager: true,
   }),
 );
+
+const boxStyles = [
+  {
+    bottom: "8%",
+    left: "5%",
+    backgroundColor: "#333333",
+    opacity: 0.4,
+  },
+  {
+    bottom: "8%",
+    left: "8%",
+    backgroundColor: "#035a4f",
+    opacity: 0.7,
+  },
+  {
+    bottom: "14%",
+    left: "5%",
+    backgroundColor: "#11d4b1",
+    opacity: 0.9,
+  },
+  {
+    bottom: "10%",
+    right: "5%",
+    backgroundColor: "#11d4b1",
+    opacity: 0.8,
+  },
+  {
+    bottom: "8%",
+    right: "8%",
+    backgroundColor: "#035a4f",
+    opacity: 0.8,
+  },
+];
 ---
 
 <Layout title="Fall 2024 Contributors | 1st">
   <main>
+    {boxStyles.map((boxStyle) => <Box style={boxStyle} float={false} />)}
+
     <h1>Fall 2024 Contributors</h1>
     <Contributors client:only="svelte" contributors={contributors} />
   </main>

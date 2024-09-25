@@ -1,4 +1,6 @@
 ---
+import Box from "./Box.astro";
+
 const boxColors = ["#11d4b1", "#035a4f", "#333333"];
 
 function getRandom(min: number, max: number) {
@@ -28,31 +30,5 @@ const boxes = Array.from({ length: numBoxes }, () => generateRandomStyles());
 ---
 
 <div class="container">
-  {boxes.map((style) => <div class="box" style={style} />)}
+  {boxes.map((style) => <Box style={style} float={true} />)}
 </div>
-
-<!-- <div class="box"></div> -->
-
-<style>
-  .box {
-    width: 2rem;
-    height: 2rem;
-    position: fixed;
-    border-radius: 0.25rem;
-    background-color: #11d4b1;
-    animation: float infinite alternate ease-in-out;
-    animation-duration: 7s;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(
-        50px,
-        50px
-      ); /* Adjust this to control the floating range */
-    }
-  }
-</style>
