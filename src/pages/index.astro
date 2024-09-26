@@ -1,0 +1,99 @@
+---
+import FloatingBoxes from "../components/FloatingBoxes.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+/>
+
+<Layout title="1st | ACM at CSUF Open Source Software Team">
+  <FloatingBoxes />
+
+  <main>
+    <h1>FIRST CONTRIBUTIONS</h1>
+    <h2>
+      <div class="subtitle">
+        <span>
+          <span class="oss"> Open Source Software </span> Team
+        </span>
+        <span> ACM at CSUF </span>
+      </div>
+    </h2>
+    <div class="semester-links">
+      <a class="arrow-link" href="/1st/fa24">
+        <span> Fall 2024 Contributors </span>
+        <img src="/1st/diagonalArrow.svg" alt="Link Icon" class="arrow-icon" />
+      </a>
+      <a class="arrow-link" href="/1st/sp24">
+        <span> Spring 2024 Contributors </span>
+        <img src="/1st/diagonalArrow.svg" alt="Link Icon" class="arrow-icon" />
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: 1rem 2rem;
+    max-width: max-content;
+    border-radius: 1.5rem;
+    border: 2px solid rgb(var(--color-secondary));
+    background-color: rgba(var(--color-secondary), 0.7);
+    z-index: 10;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    word-break: break-all;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .semester-links {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+  }
+
+  .semester-links > a {
+    color: white;
+  }
+
+  .arrow-link:hover .arrow-icon {
+    transform: translate(2px, -2px);
+  }
+
+  .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+  @media screen and (min-width: 768px) {
+    main {
+      padding: 1rem 1.25rem;
+    }
+
+    h1 {
+      font-size: 3.75rem;
+      word-wrap: normal;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .semester-links {
+      padding: 1rem;
+    }
+  }
+</style>

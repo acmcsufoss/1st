@@ -1,0 +1,28 @@
+---
+const { style, float } = Astro.props;
+---
+
+{(<div class={`box ${float ? "animate" : ""}`} style={style} />)}
+
+<style>
+  .box {
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    border-radius: 0.25rem;
+    animation-duration: 7s;
+  }
+
+  .animate {
+    animation: float infinite alternate ease-in-out;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+</style>

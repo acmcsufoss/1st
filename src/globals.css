@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+:root {
+  --ff-regular: "Poppins", "sans-serif";
+  --ff-custom: "Fira Code", "monospace";
+
+  --color-primary: 33, 33, 33;
+  --color-secondary: 47, 47, 47;
+  --color-contrast: 245, 245, 245;
+
+  --color-oss-team: 17, 212, 177;
+  --color-link: 77, 208, 225;
+
+  font-family: var(--ff-regular);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  background-color: rgb(var(--color-primary));
+  color: rgb(var(--color-contrast));
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgb(75, 75, 75);
+  transition: text-decoration 150ms ease;
+}
+
+a:hover {
+  text-decoration-color: white;
+}
+
+.custom-link {
+  text-decoration: underline;
+  color: rgb(var(--color-link));
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#app {
+  padding: 1rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin-inline: auto;
+}
+
+.oss {
+  color: rgb(var(--color-oss-team));
+  font-weight: bold;
+}

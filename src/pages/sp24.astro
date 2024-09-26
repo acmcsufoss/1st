@@ -1,0 +1,119 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+type MarkdownEntry = {
+  frontmatter: {
+    name: string;
+    githubUsername: string;
+    message: string;
+    extraLink: string;
+  };
+};
+
+const contributors: MarkdownEntry[] = Object.values(
+  import.meta.glob("../contributors/sp24/*.md", {
+    eager: true,
+  }),
+);
+---
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+/>
+
+<Layout title="Spring 2024 Contributors | 1st">
+  <main>
+    <h1>Welcome to First Contributions!</h1>
+
+    <p>
+      This is a repository dedicated for new members of the ACM at CSUF
+      <b class="oss">Open Source Software Team</b> to make their first contributions
+      to the acmcsufoss org! Let us walk through the steps so you can make your first
+      commit, pull request, or issue closing to become a contributor of our beloved
+      community!
+    </p>
+
+    <p>
+      The Spring 2024 semester had <span class="oss">{contributors.length}</span
+      > total contributors! Thank you to everyone for participating in this initiative.
+      Check the entire list of contributors below!
+    </p>
+
+    <h2>References</h2>
+    <ul>
+      <li>
+        <a href="https://acmcsuf.com/1st">acmcsuf.com/1st</a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/firstcontributions/first-contributions#readme"
+          >First contributions
+        </a>
+      </li>
+    </ul>
+
+    <h2>List of contributors</h2>
+
+    <!-- prettier-ignore -->
+    <ul>
+      {
+        contributors.map((contributor) => (
+          <li>
+            <strong>
+              <a
+                class="custom-link"
+                target="_blank"
+                href={
+                  contributor.frontmatter.extraLink !== ""
+                    ? contributor.frontmatter.extraLink
+                    : `https://github.com/${contributor.frontmatter.githubUsername}`
+                }
+              >{contributor.frontmatter.name}</a>:
+            </strong>
+            {contributor.frontmatter.message}
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+
+  <style>
+    main {
+      max-width: 60ch;
+      margin: 0 auto;
+    }
+
+    h1 {
+      vertical-align: center;
+      text-align: center;
+    }
+
+    p {
+      margin-block: 1.25rem;
+    }
+
+    p > b.oss {
+      color: rgb(var(--color-oss-team));
+    }
+
+    li > strong {
+      color: rgb(var(--color-link));
+      font-weight: bold;
+    }
+
+    ul li p img {
+      width: 1.5rem;
+    }
+
+    @media screen and (max-width: 30rem) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</Layout>
