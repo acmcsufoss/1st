@@ -1,11 +1,16 @@
 <script>
   import { T, useTask } from "@threlte/core";
-  import { interactivity } from "@threlte/extras";
-  import { Spring } from "svelte/motion";
+  import { interactivity, OrbitControls } from "@threlte/extras";
+
+  export let contributors;
 
   interactivity();
 
-  const scale = new Spring(1);
+  const coordinates = Array.from(contributors, () => [
+    Math.random() * 10 - 5,
+    Math.random(),
+    Math.random() * 10 - 5,
+  ]);
 
   let rotation = 0;
   useTask((delta) => {
@@ -13,27 +18,23 @@
   });
 </script>
 
-<T.PerspectiveCamera
-  makeDefault
-  position={[10, 10, 10]}
-  oncreate={(ref) => {
-    ref.lookAt(0, 1, 0);
-  }}
-/>
+<T.PerspectiveCamera makeDefault position={[0, 5, 0]}>
+  <OrbitControls
+    enableDamping
+    minPolarAngle={Math.PI / 3}
+    maxPolarAngle={Math.PI / 2.1}
+    minDistance={2}
+    maxDistance={8.5}
+    dampingFactor={0.03}
+  />
+</T.PerspectiveCamera>
 
-<T.DirectionalLight position={[0, 10, 10]} />
+<T.AmbientLight position={[0, 10, 10]} color="#FFFFFF" intensity={3} />
+<T.GridHelper args={[30, 30]} />
 
-<T.Mesh
-  rotation.y={rotation}
-  position.y={1}
-  scale={scale.current}
-  onpointerenter={() => {
-    scale.target = 1.5;
-  }}
-  onpointerleave={() => {
-    scale.target = 1;
-  }}
->
-  <T.BoxGeometry args={[1, 1, 1]} />
-  <T.MeshStandardMaterial color="hotpink" />
-</T.Mesh>
+{#each coordinates as [x, y, z]}
+  <T.Mesh position={[x, y, z]}>
+    <T.SphereGeometry args={[0.1]} />
+    <T.MeshStandardMaterial color="rgb(17, 212, 177)" />
+  </T.Mesh>
+{/each}
