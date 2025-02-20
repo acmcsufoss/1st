@@ -8,11 +8,94 @@ const contributors = Object.values(
 ---
 
 <link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
   rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
 />
 
 <Layout title="Spring 2025 Contributors | 1st">
-  <h1>Spring 2025 Contributors</h1>
+  <section class="text-content">
+    <h1>Spring 2025 Contributors</h1>
+    <p>
+      <b>First Contributions</b> is a website that aims to simplify and guide the
+      way beginners make their first contribution to the <span class="oss"
+        >acmcsufoss
+      </span>organization! If you would like to make a contribution to this
+      website, follow the instructions in the repository's <a
+        href="https://github.com/acmcsufoss/1st?tab=readme-ov-file#1st--first-contributions-to-acmcsuf"
+        target="_blank">README</a
+      >.
+    </p>
+    <p>
+      This semester we have a total of <span class="oss"
+        >{contributors.length}</span
+      > and we thank each and everyone of you for willing to be part of this intiative
+      in promoting <span class="oss">Open Source Software</span> in ACM!!
+    </p>
+  </section>
+  <h2 class="oss">Contributor Scene</h2>
   <Grid3D client:only="svelte" {contributors} />
 </Layout>
+
+<style>
+  .text-content {
+    margin-block: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    background-image: linear-gradient(
+      60deg,
+      rgb(var(--color-oss-team)),
+      rgb(17, 150, 212)
+    );
+    background-clip: text;
+    color: transparent;
+    max-width: max-content;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+    font-style: italic;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    h1 {
+      font-size: 5rem;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+</style>

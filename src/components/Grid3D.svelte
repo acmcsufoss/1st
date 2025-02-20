@@ -26,11 +26,3 @@
     <Scene {contributors} {openContributorDialog} />
   </Canvas>
 </div>
-
-<style>
-  .canvas-wrapper {
-    max-width: 1280px;
-    height: 700px;
-    margin: auto;
-  }
-</style>

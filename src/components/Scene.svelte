@@ -37,7 +37,7 @@
   />
 </T.PerspectiveCamera>
 
-<T.AmbientLight position={[0, 10, 10]} color="#FFFFFF" intensity={3} />
+<T.AmbientLight position={[0, 10, 10]} color="#FFFFFF" intensity={5} />
 <T.GridHelper args={[30, 30]} />
 
 {#key namePosition}
