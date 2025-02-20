@@ -1,21 +1,29 @@
-<script>
-  import { T, useTask } from "@threlte/core";
-  import { interactivity, OrbitControls } from "@threlte/extras";
+<script lang="ts">
+  import { T } from "@threlte/core";
+  import { interactivity, OrbitControls, Text } from "@threlte/extras";
+  import type { Fa2024MarkdownEntry } from "../types";
 
-  export let contributors;
+  export let contributors: Fa2024MarkdownEntry[];
+  export let openContributorDialog: (i: number) => void;
 
   interactivity();
 
-  const coordinates = Array.from(contributors, () => [
-    Math.random() * 10 - 5,
-    Math.random(),
-    Math.random() * 10 - 5,
-  ]);
+  const bubbleColors = [
+    "rgb(17, 212, 177)",
+    "rgb(21, 114, 97)",
+    "rgb(18, 132, 138)",
+    "rgb(255, 253, 117)",
+  ];
+  const bubbleProps = Array.from(contributors, (contributor) => ({
+    x: Math.random() * 10 - 5,
+    y: Math.random(),
+    z: Math.random() * 10 - 5,
+    color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)],
+    contributorName: contributor.frontmatter.name,
+  }));
 
-  let rotation = 0;
-  useTask((delta) => {
-    rotation += delta;
-  });
+  let namePosition = { x: 0, y: 0 };
+  let currName = "";
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 5, 0]}>
@@ -32,9 +40,26 @@
 <T.AmbientLight position={[0, 10, 10]} color="#FFFFFF" intensity={3} />
 <T.GridHelper args={[30, 30]} />
 
-{#each coordinates as [x, y, z]}
-  <T.Mesh position={[x, y, z]}>
+{#key namePosition}
+  <Text
+    text={currName}
+    anchorX={-1 * namePosition.x}
+    anchorY={-1 * namePosition.y}
+  />
+{/key}
+
+{#each bubbleProps as { x, y, z, color, contributorName }, i}
+  <T.Mesh
+    position={[x, y, z]}
+    onpointerenter={() => {
+      currName = contributorName;
+      namePosition = { x: x, y: y + 0.2 };
+    }}
+    onclick={() => {
+      openContributorDialog(i);
+    }}
+  >
     <T.SphereGeometry args={[0.1]} />
-    <T.MeshStandardMaterial color="rgb(17, 212, 177)" />
+    <T.MeshStandardMaterial {color} />
   </T.Mesh>
 {/each}
