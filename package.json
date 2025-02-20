@@ -10,13 +10,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@astrojs/svelte": "^5.7.1",
-    "astro": "^4.15.5",
-    "svelte": "^4.2.19",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/svelte": "^7.0.4",
+    "@threlte/core": "^8.0.1",
+    "@threlte/extras": "^9.0.1",
+    "astro": "^5.3.0",
+    "svelte": "^5.1.16",
+    "three": "^0.173.0",
     "typescript": "^5.6.2"
   },
   "devDependencies": {
+    "@types/three": "^0.173.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
   }
