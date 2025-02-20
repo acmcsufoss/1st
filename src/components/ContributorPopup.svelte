@@ -38,12 +38,11 @@
           <b>Message:</b>
           {message}
         </div>
+        <div class="bubble-1"></div>
+        <div class="bubble-2"></div>
+        <div class="bubble-3"></div>
+        <div class="bubble-4"></div>
       {/if}
-
-      <div class="bubble-1"></div>
-      <div class="bubble-2"></div>
-      <div class="bubble-3"></div>
-      <div class="bubble-4"></div>
 
       <div class="left">
         <img
@@ -99,7 +98,7 @@
     tabindex="-1"
     in:fade={{ duration: 100 }}
     out:fade={{ duration: 100 }}
-  />
+  ></div>
 {/key}
 
 <style>
