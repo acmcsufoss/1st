@@ -1,1 +1,0 @@
-[**adriancancode**](https://github.com/adriancancode): Yes. I can code.
