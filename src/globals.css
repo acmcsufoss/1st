@@ -4,7 +4,7 @@
   --ff-regular: "Poppins", "sans-serif";
   --ff-custom: "Fira Code", "monospace";
 
-  --color-primary: 33, 33, 33;
+  --color-primary: 22, 22, 22;
   --color-secondary: 47, 47, 47;
   --color-contrast: 245, 245, 245;
 
@@ -66,4 +66,5 @@ body {
 
 .oss {
   color: rgb(var(--color-oss-team));
+  font-weight: bold;
 }

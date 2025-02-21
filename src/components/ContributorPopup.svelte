@@ -1,6 +1,5 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
-  import CloseIcon from "./CloseIcon.svelte";
   import type { Fa2024MarkdownEntry } from "../types";
 
   export let isOpen = false;
@@ -28,19 +27,22 @@
     out:fly={{ y: 40, duration: 150 }}
   >
     <button class="custom-close-btn" on:click={toggleContainer}>
-      <CloseIcon />
+      <img src="/1st/closeIcon.svg" alt="Close Icon" />
     </button>
 
     <h2>{name}</h2>
 
     <div class="card-layout">
-      <div class="message">
-        {message}
-      </div>
-      <div class="bubble-1"></div>
-      <div class="bubble-2"></div>
-      <div class="bubble-3"></div>
-      <div class="bubble-4"></div>
+      {#if message && message !== ""}
+        <div class="message">
+          <b>Message:</b>
+          {message}
+        </div>
+        <div class="bubble-1"></div>
+        <div class="bubble-2"></div>
+        <div class="bubble-3"></div>
+        <div class="bubble-4"></div>
+      {/if}
 
       <div class="left">
         <img
@@ -48,32 +50,42 @@
           alt="{name} GitHub image"
         />
         <div class="links">
-          <a target="_blank" href="https://github.com/{githubUsername}">
-            GitHub Profile
-          </a>
-          {#if extraLink !== ""}
+          {#if githubUsername && githubUsername !== ""}
+            <a target="_blank" href="https://github.com/{githubUsername}">
+              GitHub Profile
+            </a>
+          {/if}
+          {#if extraLink && extraLink !== ""}
             <a target="_blank" href={extraLink}> External Link </a>
           {/if}
         </div>
       </div>
 
       <div class="right">
-        <div>
-          <h3>GitHub</h3>
-          <p>{githubUsername}</p>
-        </div>
-        <div>
-          <h3>About</h3>
-          <p>{about}</p>
-        </div>
-        <div>
-          <h3>Programming Interests</h3>
-          <p>{programmingInterests}</p>
-        </div>
-        <div>
-          <h3>Hobbies</h3>
-          <p>{hobbies}</p>
-        </div>
+        {#if githubUsername && githubUsername !== ""}
+          <div>
+            <h3>GitHub Username</h3>
+            <p>{githubUsername}</p>
+          </div>
+        {/if}
+        {#if about && about !== ""}
+          <div>
+            <h3>About</h3>
+            <p>{about}</p>
+          </div>
+        {/if}
+        {#if programmingInterests && programmingInterests !== ""}
+          <div>
+            <h3>Programming Interests</h3>
+            <p>{programmingInterests}</p>
+          </div>
+        {/if}
+        {#if hobbies && hobbies !== ""}
+          <div>
+            <h3>Hobbies</h3>
+            <p>{hobbies}</p>
+          </div>
+        {/if}
       </div>
     </div>
   </div>
@@ -86,7 +98,7 @@
     tabindex="-1"
     in:fade={{ duration: 100 }}
     out:fade={{ duration: 100 }}
-  />
+  ></div>
 {/key}
 
 <style>
@@ -97,7 +109,8 @@
     z-index: 20;
     display: none;
     width: min(40rem, 90vw);
-    max-height: 400px;
+    max-height: 500px;
+    overflow-y: scroll;
     transform: translate(-50%, -50%);
     border-radius: 0.5rem;
     background-color: rgb(var(--color-primary));
@@ -143,7 +156,6 @@
   }
 
   .message {
-    position: absolute;
     padding: 0.5rem;
     border-radius: 0.5rem;
     top: -42%;
@@ -154,6 +166,7 @@
   .bubble-2,
   .bubble-3,
   .bubble-4 {
+    display: none;
     background-color: rgb(var(--color-secondary));
     position: absolute;
     border-radius: 50%;
@@ -189,7 +202,7 @@
     padding-inline: 1rem;
     margin-top: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 2rem;
   }
 
@@ -207,13 +220,15 @@
   }
 
   .card-layout img {
+    margin-inline: auto;
     border-radius: 50%;
-    width: 10rem;
+    width: 7rem;
   }
 
   .card-layout > .right {
-    display: grid;
-    gap: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .card-layout > .right > div {
@@ -224,5 +239,31 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+  }
+
+  @media screen and (min-width: 640px) {
+    .custom-modal {
+      max-width: none;
+      overflow-y: visible;
+    }
+
+    .message {
+      position: absolute;
+    }
+
+    .card-layout {
+      flex-direction: row;
+    }
+
+    .bubble-1,
+    .bubble-2,
+    .bubble-3,
+    .bubble-4 {
+      display: block;
+    }
+
+    .card-layout img {
+      width: 10rem;
+    }
   }
 </style>
