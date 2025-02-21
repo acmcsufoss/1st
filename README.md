@@ -88,7 +88,7 @@ Soon, someone will be merging all your changes into the master branch of this pr
 
 ---
 
-### CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION
+### CONGRATULATIONS ON MAKING YOUR FIRST CONTRIBUTION
 
 Inspired by [First Contributions](https://github.com/firstcontributions/first-contributions#readme)
 
