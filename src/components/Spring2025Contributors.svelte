@@ -43,9 +43,9 @@
   }
 
   .contributors-grid {
-    width: 80%;
-    margin-top: 3rem;
+    width: min(1280px, 100%);
     margin-inline: auto;
+    margin-top: 3rem;
   }
 
   .contributors-grid > h2 {
