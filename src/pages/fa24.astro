@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Contributors from "../components/Contributors.svelte";
-import type { Fa2024MarkdownEntry } from "../types";
+import type { ContributorMarkdownEntry } from "../types";
 import Box from "../components/Box.astro";
 
-const contributors: Fa2024MarkdownEntry[] = Object.values(
+const contributors: ContributorMarkdownEntry[] = Object.values(
   import.meta.glob("../contributors/fa24/*.md", {
     eager: true,
   }),

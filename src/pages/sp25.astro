@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Grid3D from "../components/Grid3D.svelte";
+import Spring2025Contributors from "../components/Spring2025Contributors.svelte";
 
 const contributors = Object.values(
   import.meta.glob("../contributors/sp25/*md", { eager: true }),
@@ -33,7 +33,7 @@ const contributors = Object.values(
     </p>
   </section>
   <h2 class="oss">Contributor Scene</h2>
-  <Grid3D client:only="svelte" {contributors} />
+  <Spring2025Contributors client:only="svelte" {contributors} />
 </Layout>
 
 <style>
@@ -47,7 +47,11 @@ const contributors = Object.values(
   h1 {
     font-size: 2.5rem;
     font-weight: bolder;
-    background-image: linear-gradient(60deg, rgb(var(--color-oss-team)), rgb(17, 150, 212));
+    background-image: linear-gradient(
+      60deg,
+      rgb(var(--color-oss-team)),
+      rgb(17, 150, 212)
+    );
     background-clip: text;
     color: transparent;
     max-width: max-content;

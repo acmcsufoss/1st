@@ -1,11 +1,12 @@
 <script lang="ts">
-  import type { Fa2024MarkdownEntry } from "../types";
+  import type { ContributorMarkdownEntry } from "../types";
   import { Canvas } from "@threlte/core";
-  import ContributorPopup from "./ContributorPopup.svelte";
   import Starfield from "./Starfield.svelte";
-  import Scene from "./Scene.svelte";
+  import ContributorPopup from "./ContributorPopup.svelte";
+  import ContributorScene from "./ContributorScene.svelte";
+  import Contributors from "./Contributors.svelte";
 
-  export let contributors: Fa2024MarkdownEntry[];
+  export let contributors: ContributorMarkdownEntry[];
 
   let isContributorDialogOpen = false;
   let contributorIndex = 0;
@@ -26,13 +27,28 @@
 
 <div class="canvas-wrapper">
   <Canvas>
-    <Scene {contributors} {openContributorDialog} />
+    <ContributorScene {contributors} {openContributorDialog} />
   </Canvas>
+</div>
+
+<div class="contributors-grid">
+  <h2>List Of Contributors</h2>
+  <Contributors {contributors} />
 </div>
 
 <style>
   .canvas-wrapper {
     width: 95%;
     margin-inline: auto;
+  }
+
+  .contributors-grid {
+    width: 80%;
+    margin-top: 3rem;
+    margin-inline: auto;
+  }
+
+  .contributors-grid > h2 {
+    text-align: center;
   }
 </style>

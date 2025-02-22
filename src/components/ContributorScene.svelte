@@ -6,9 +6,9 @@
     Text,
     Billboard,
   } from "@threlte/extras";
-  import type { Fa2024MarkdownEntry } from "../types";
+  import type { ContributorMarkdownEntry } from "../types";
 
-  export let contributors: Fa2024MarkdownEntry[];
+  export let contributors: ContributorMarkdownEntry[];
   export let openContributorDialog: (i: number) => void;
 
   interactivity();

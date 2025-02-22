@@ -1,9 +1,9 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
-  import type { Fa2024MarkdownEntry } from "../types";
+  import type { ContributorMarkdownEntry } from "../types";
 
   export let isOpen = false;
-  export let contributor: Fa2024MarkdownEntry;
+  export let contributor: ContributorMarkdownEntry;
 
   const {
     name,
