@@ -1,4 +1,4 @@
-export type Fa2024MarkdownEntry = {
+export type ContributorMarkdownEntry = {
   frontmatter: {
     name: string;
     githubUsername: string;

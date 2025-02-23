@@ -1,9 +1,14 @@
 <script lang="ts">
   import { T } from "@threlte/core";
-  import { interactivity, OrbitControls, Text } from "@threlte/extras";
-  import type { Fa2024MarkdownEntry } from "../types";
+  import {
+    interactivity,
+    OrbitControls,
+    Text,
+    Billboard,
+  } from "@threlte/extras";
+  import type { ContributorMarkdownEntry } from "../types";
 
-  export let contributors: Fa2024MarkdownEntry[];
+  export let contributors: ContributorMarkdownEntry[];
   export let openContributorDialog: (i: number) => void;
 
   interactivity();
@@ -22,7 +27,7 @@
     contributorName: contributor.frontmatter.name,
   }));
 
-  let namePosition = { x: 0, y: 0 };
+  let namePosition = { x: 0, y: 0, z: 0 };
   let currName = "";
 </script>
 
@@ -41,11 +46,9 @@
 <T.GridHelper args={[30, 30]} />
 
 {#key namePosition}
-  <Text
-    text={currName}
-    anchorX={-1 * namePosition.x}
-    anchorY={-1 * namePosition.y}
-  />
+  <Billboard position={[namePosition.x, namePosition.y, namePosition.z]}>
+    <Text text={currName} />
+  </Billboard>
 {/key}
 
 {#each bubbleProps as { x, y, z, color, contributorName }, i}
@@ -53,7 +56,7 @@
     position={[x, y, z]}
     onpointerenter={() => {
       currName = contributorName;
-      namePosition = { x: x, y: y + 0.2 };
+      namePosition = { x: x, y: y + 0.2, z: z };
     }}
     onclick={() => {
       openContributorDialog(i);

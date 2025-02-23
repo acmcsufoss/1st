@@ -1,8 +1,8 @@
 <script lang="ts">
   import ContributorPopup from "./ContributorPopup.svelte";
-  import type { Fa2024MarkdownEntry } from "../types";
+  import type { ContributorMarkdownEntry } from "../types";
 
-  export let contributors: Fa2024MarkdownEntry[];
+  export let contributors: ContributorMarkdownEntry[];
 
   let isContributorDialogOpen = false;
   let contributorIndex = 0;
