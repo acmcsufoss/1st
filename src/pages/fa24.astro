@@ -61,7 +61,7 @@ const boxStyles = [
     <h1>Fall 2024 Contributors</h1>
 
     <p style="text-align: center;">
-      The Fall 2024 semester had <span class="oss">69</span> total contributors!
+      The Fall 2024 semester had <span class="oss">{contributors.length}</span> total contributors!
       Click on a contributor to know more about them!
     </p>
     <Contributors client:only="svelte" contributors={contributors} />
