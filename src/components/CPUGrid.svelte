@@ -44,9 +44,17 @@
 
   const pins = Array.from(contributors, (contributor) => ({
     location: randomIndex(),
-    color: pinColors[Math.floor(Math.random() * pinColors.length)],
     contributorName: contributor.frontmatter.name,
   }));
+
+  function getContributorFromLocation(loc) {
+    for (let i = 0; i < pins.length; i++) {
+      if (pins[i].location === loc) {
+        return pins[i];
+      }
+    }
+    return null;
+  }
 
   /*
     every contributor needs a 2d index such that:
