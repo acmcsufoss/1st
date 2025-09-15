@@ -10,9 +10,6 @@
   let isContributorDialogOpen = false;
   let contributorIndex = 0;
 
-  console.log("wtf")
-  
-
   function openContributorDialog(i: number) {
     contributorIndex = i;
     isContributorDialogOpen = true;
@@ -28,7 +25,7 @@
 <CPUGrid {contributors} {openContributorDialog} />
 
 <div class="contributors-grid">
-  <h2>List Of Co>ntributors</h2>
+  <h2>List Of Contributors</h2>
   <Contributors {contributors} />
 </div>
 

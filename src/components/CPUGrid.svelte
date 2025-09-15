@@ -30,16 +30,14 @@
   }
 
   
-//   const bubbleProps = Array.from(contributors, (contributor) => ({
-//     x: Math.random() * 10 - 5,
-//     y: Math.random(),
-//     z: Math.random() * 10 - 5,
-//     color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)],
-//     contributorName: contributor.frontmatter.name,
-//   }));
+  const pins = Array.from(contributors, (contributor) => ({
+    x: Math.floor(Math.random() * 12),
+    y: Math.floor(Math.random() * 12),
+    color: pinColors[Math.floor(Math.random() * pinColors.length)],
+    contributorName: contributor.frontmatter.name,
+  }));
 
-  let namePosition = { x: 0, y: 0, z: 0 };
-  let currName = "";
+  
 </script>
 
 <svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" style="margin:auto;">
