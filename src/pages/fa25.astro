@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Spring2025Contributors from "../components/Spring2025Contributors.svelte";
+import Fall2025Contributors from "../components/Fall2025Contributors.svelte";
 
 const contributors = Object.values(
   import.meta.glob("../contributors/fa25/*md", { eager: true }),
@@ -14,7 +14,7 @@ const contributors = Object.values(
 
 <Layout title="Spring 2025 Contributors | 1st">
   <section class="text-content">
-    <h1>Spring 2025 Contributors</h1>
+    <h1>Fall 2025 Contributors</h1>
     <p>
       <b>First Contributions</b> is a website that aims to simplify and guide the
       way beginners make their first contribution to the <span class="oss"
@@ -29,11 +29,10 @@ const contributors = Object.values(
       This semester we have a total of <span class="oss"
         >{contributors.length}</span
       > and we thank each and every one of you for willing to be part of this initiative
-      in promoting <span class="oss">Open Source Software</span> in ACM!!
+      in promoting <span class="oss">Open Source</span> in ACM!!
     </p>
   </section>
-  <h2 class="oss">Contributor Scene</h2>
-  <Spring2025Contributors client:only="svelte" {contributors} />
+  <Fall2025Contributors client:only="svelte" {contributors} />
 </Layout>
 
 <style>

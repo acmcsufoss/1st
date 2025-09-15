@@ -1,17 +1,10 @@
 <script lang="ts">
   import type { ContributorMarkdownEntry } from "../types";
-  import { Canvas } from "@threlte/core";
-  import Starfield from "./Starfield.svelte";
-  import ContributorPopup from "./ContributorPopup.svelte";
-  import ContributorScene from "./ContributorScene.svelte";
-  import Contributors from "./Contributors.svelte";
 
   export let contributors: ContributorMarkdownEntry[];
+  export let openContributorDialog: (i: number) => void;
 
-  let isContributorDialogOpen = false;
-  let contributorIndex = 0;
-
-  const pinDefaultColor = [194, 164, 20]
+  const pinDefaultColor = "rgb(194, 164, 20)"
   const pinColors = [
     [232, 16, 34],
     [179, 243, 16],
@@ -22,45 +15,24 @@
     [242, 92, 237],
     [254, 44, 194],
   ];
+//   const bubbleProps = Array.from(contributors, (contributor) => ({
+//     x: Math.random() * 10 - 5,
+//     y: Math.random(),
+//     z: Math.random() * 10 - 5,
+//     color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)],
+//     contributorName: contributor.frontmatter.name,
+//   }));
 
-  function openContributorDialog(i: number) {
-    contributorIndex = i;
-    isContributorDialogOpen = true;
-  }
-
-  $: contributor = contributors[contributorIndex];
+  let namePosition = { x: 0, y: 0, z: 0 };
+  let currName = "";
 </script>
 
-{#key contributorIndex}
-  <ContributorPopup bind:contributor bind:isOpen={isContributorDialogOpen} />
-{/key}
+<svg>
+    <image src="assets/CPU.svg" width="40%" style="margin:auto;" />
 
-<Starfield />
-
-<div class="canvas-wrapper">
-  <Canvas>
-    <ContributorScene {contributors} {openContributorDialog} />
-  </Canvas>
-</div>
-
-<div class="contributors-grid">
-  <h2>List Of Contributors</h2>
-  <Contributors {contributors} />
-</div>
-
-<style>
-  .canvas-wrapper {
-    width: 95%;
-    margin-inline: auto;
-  }
-
-  .contributors-grid {
-    width: min(1280px, 100%);
-    margin-inline: auto;
-    margin-top: 3rem;
-  }
-
-  .contributors-grid > h2 {
-    text-align: center;
-  }
-</style>
+    {#each {length: 75} as _, i}
+        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+            <circle cx={i+10} cy={i+10} r="10" fill={pinDefaultColor} />
+        </svg>
+    {/each}
+</svg>
