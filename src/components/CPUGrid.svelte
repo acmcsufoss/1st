@@ -23,20 +23,41 @@
     [4,7], [5,7], [6,7], [7,7], 
   ];
 
-  function isIndexInList(target) {
-    return skippedGrid.some(
+  const takenGrid = []
+
+  function isIndexInList(target, list) {
+    return list.some(
       (index) => index.length === target.length && index.every((value, i) => value === target[i])
     );
   }
-
   
+  function randomIndex() {
+    let x = 4;
+    let y = 4;
+    while (isIndexInList([x,y], skippedGrid) || isIndexInList([x,y], takenGrid)) {
+      x = Math.floor(Math.random() * 12);
+      y = Math.floor(Math.random() * 12);
+    }
+    takenGrid.push([x,y]);
+    return [x,y];
+  }
+
   const pins = Array.from(contributors, (contributor) => ({
-    x: Math.floor(Math.random() * 12),
-    y: Math.floor(Math.random() * 12),
+    location: randomIndex(),
     color: pinColors[Math.floor(Math.random() * pinColors.length)],
     contributorName: contributor.frontmatter.name,
   }));
 
+  /*
+    every contributor needs a 2d index such that:
+      the index isnt in `skippedGrid`
+      the index isnt taken by another contributor
+
+    ideas:
+      dictionary of every valid index, with a boolean for if it is taken
+        (or check for empty object)
+      check the index while making the object
+  */
   
 </script>
 
@@ -47,8 +68,12 @@
 
     {#each {length: 12} as _, i}
         {#each {length: 12} as _, j}
-            {#if !isIndexInList([i,j])}
-                <circle cx={i*42+24} cy={j*42+24} r="12" fill={pinDefaultColor} />
+            {#if !isIndexInList([i,j], skippedGrid)}
+                {#if isIndexInList([i,j], takenGrid)}
+                    <circle cx={i*42+24} cy={j*42+24} r="12" fill={pinColors[Math.floor(Math.random() * pinColors.length)]} />
+                {:else}
+                    <circle cx={i*42+24} cy={j*42+24} r="12" fill={pinDefaultColor} />
+                {/if}
             {/if}
         {/each}
     {/each}
