@@ -46,15 +46,19 @@ const contributors = Object.values(
   h1 {
     font-size: 2.5rem;
     font-weight: bolder;
-    background-image: linear-gradient(
+    animation: gradientChange 5s ease-in-out infinite;
+    background: linear-gradient(
       60deg,
       rgb(var(--color-oss-team)),
-      rgb(17, 150, 212)
+      rgb(228, 10, 178),
+      rgb(194, 164, 20)
     );
+    background-size: 400% 400%; /* Allows for movement */
+    background-position: 0% 50%; /* Initial position */
     background-clip: text;
     color: transparent;
     max-width: max-content;
-    margin: 0;
+    margin: auto;
   }
 
   h2 {
@@ -67,7 +71,26 @@ const contributors = Object.values(
 
   p {
     font-size: 1.25rem;
-    margin: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+  @keyframes gradientChange {
+    0% {
+      background-position: 0% 50%; /* Start position */
+    }
+    25% {
+      background-position: 100% 50%; /* Move to the right */
+    }
+    50% {
+      background-position: 200% 50%; /* Continue moving */
+    }
+    75% {
+      background-position: 100% 50%; /* Move further */
+    }
+    100% {
+      background-position: 0% 50%; /* Loop back */
+    }
   }
 
   @media screen and (min-width: 768px) {

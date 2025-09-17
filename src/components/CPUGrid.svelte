@@ -119,7 +119,7 @@
     />
     <text
       x={hovered.x * 42 + 48}
-      y={hovered.y * 42 + 12}
+      y={hovered.y * 42 + 10}
       font-size="16"
       fill="#FFFFFE"
       text-anchor="middle"
