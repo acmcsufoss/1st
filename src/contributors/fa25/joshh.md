@@ -5,5 +5,5 @@ message: "hi everyone!"
 about: "no. 1 performative man"
 programmingInterests: "Backend, Systems, Game dev"
 hobbies: "Boardsports, Reading, Tennis"
-extraLink: "jolman.me"
+extraLink: "https://jolman.me"
 ---
