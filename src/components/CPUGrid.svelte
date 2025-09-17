@@ -45,16 +45,24 @@
   const pins = Array.from(contributors, (contributor) => ({
     location: randomIndex(),
     contributorName: contributor.frontmatter.name,
+    contributorID: location[0] + "_" + location[1]
   }));
 
-  function getContributorFromLocation(loc) {
-    for (let i = 0; i < pins.length; i++) {
-      if (pins[i].location === loc) {
-        return pins[i];
-      }
-    }
-    return null;
+  function showHover(boxID, textID) {
+    document.getElementById(boxID).style.opacity = ".8";
+    document.getElementById(textID).style.opacity = "1";
   }
+  function hideHover(boxID) {
+    document.getElementById(boxID).style.opacity = "0";
+  }
+  // function getContributorFromLocation(loc) {
+  //   for (let i = 0; i < pins.length; i++) {
+  //     if (pins[i].location === loc) {
+  //       return pins[i];
+  //     }
+  //   }
+  //   return null;
+  // }
 
   /*
     every contributor needs a 2d index such that:
@@ -69,23 +77,30 @@
   
 </script>
 
-<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" style="margin:auto;">
-    <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="512" height="512" fill="#0a5447" rx="10" ry="10" />
-    </svg>
+<svg width="536" height="536" viewBox="0 0 536 536" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:auto;">
+    <rect x="12" y="12" width="512" height="512" fill="#0a5447" rx="10" ry="10" />
 
     {#each {length: 12} as _, i}
         {#each {length: 12} as _, j}
             {#if !isIndexInList([i,j], skippedGrid)}
                 {#if isIndexInList([i,j], takenGrid)}
-                    <circle cx={i*42+24} cy={j*42+24} r="12" fill={pinColors[Math.floor(Math.random() * pinColors.length)]} />
+                    <rect id={i+"_"+j+"_hover"} 
+                      x={i*42-6} y={j*42-6} z="2"
+                      width="84" height="28"
+                      fill="#2b2b2b" style="opacity: 0;">
+                        <text textLength="65" fill="#FFFFFE" id={i+"_"+j+"_text"}>meow</text>
+                    </rect>
+                    <circle id={i+"_"+j} 
+                      onmouseover={() => showHover(i+"_"+j+"_hover", i+"_"+j+"_text")} 
+                      onmouseout={() => hideHover(i+"_"+j+"_hover")}
+                      cx={i*42+36} cy={j*42+36} r="12" fill={pinColors[Math.floor(Math.random() * pinColors.length)]} />
                 {:else}
-                    <circle cx={i*42+24} cy={j*42+24} r="12" fill={pinDefaultColor} />
+                    <circle cx={i*42+36} cy={j*42+36} r="12" fill={pinDefaultColor} />
                 {/if}
             {/if}
         {/each}
     {/each}
-    <svg width="242" height="242" viewBox="0 0 242 242" x="135" y="135" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="242" height="242" viewBox="0 0 242 242" x="147" y="147" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_1_19)">
         <path d="M74.9816 107.176L88.7941 113.02C90.4469 109.715 92.1587 106.527 93.9295 103.457C95.7003 100.388 97.6483 97.3187 99.7733 94.2492L89.8566 92.3013L74.9816 107.176ZM100.127 121.874L120.315 141.885C125.274 139.996 130.586 137.104 136.252 133.207C141.919 129.312 147.231 124.885 152.19 119.926C160.454 111.662 166.919 102.485 171.584 92.3934C176.245 82.2973 178.28 72.9992 177.69 64.4992C169.19 63.9089 159.864 65.9442 149.711 70.605C139.558 75.2706 130.35 81.7353 122.086 89.9992C117.127 94.9575 112.7 100.27 108.805 105.937C104.909 111.604 102.016 116.916 100.127 121.874ZM135.013 167.207L149.888 152.332L147.94 142.416C144.87 144.541 141.801 146.458 138.731 148.167C135.662 149.882 132.475 151.565 129.169 153.218L135.013 167.207ZM180.584 50.6027C186.485 50.8322 191.178 55.5271 191.414 61.4276C191.847 72.2697 190.137 82.8844 186.282 93.2717C181.262 106.791 172.614 119.69 160.336 131.968L163.877 149.499C164.35 151.86 164.231 154.162 163.524 156.405C162.815 158.649 161.634 160.596 159.981 162.249L140.194 182.037C135.427 186.804 127.35 185.242 124.705 179.039L115.356 157.114L86.3782 128.135C85.5176 127.275 84.5 126.587 83.3805 126.11L63.1086 117.466C56.9175 114.826 55.346 106.771 60.0909 101.997L79.7629 82.2075C81.4156 80.5548 83.3943 79.3742 85.6987 78.6659C87.9984 77.9576 90.3288 77.8395 92.6899 78.3117L110.221 81.8534C122.499 69.5756 135.367 60.8985 148.825 55.8222C159.167 51.9211 169.754 50.1813 180.584 50.6027ZM62.7629 149.322C66.8948 145.19 71.9405 143.094 77.8999 143.032C83.8641 142.975 88.9122 145.013 93.0441 149.145C97.176 153.277 99.2113 158.322 99.1499 164.282C99.0933 170.246 96.9989 175.294 92.867 179.426C89.9157 182.377 84.988 184.916 78.0841 187.041C72.9484 188.62 66.3617 190.07 58.3241 191.389C53.8885 192.116 50.0729 188.301 50.8006 183.865C52.1194 175.828 53.5686 169.24 55.1483 164.105C57.2733 157.201 59.8114 152.274 62.7629 149.322ZM72.8566 159.239C71.676 160.419 70.4955 162.575 69.3149 165.706C68.1344 168.832 67.308 171.989 66.8358 175.176C70.0233 174.704 73.1824 173.909 76.3133 172.789C79.4394 171.665 81.5927 170.513 82.7733 169.332C84.1899 167.916 84.9573 166.204 85.0754 164.197C85.1934 162.19 84.5441 160.479 83.1274 159.062C81.7108 157.645 79.9989 156.965 77.992 157.022C75.985 157.083 74.2733 157.822 72.8566 159.239Z" fill="#11D4B1" fill-opacity="0.4"/>
         <path d="M141.48 114.847C141.48 107.149 135.239 100.907 127.54 100.907C119.841 100.907 113.6 107.149 113.6 114.847C113.6 122.546 119.841 128.787 127.54 128.787C135.239 128.787 141.48 122.546 141.48 114.847Z" fill="#11D4B1" fill-opacity="0.4"/>
@@ -102,4 +117,8 @@
         </filter>
       </defs>
     </svg>
-</svg>
+  </svg>
+
+  <style>
+
+  </style>
