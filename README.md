@@ -12,6 +12,10 @@ ACM at CSUF provides a social online platform, Discord, that brings passionate T
 
 Fork the repository by clicking on the fork button on the top of [`oss.acmcsuf.com/1st`'s page on GitHub](https://github.com/acmcsufoss/1st). This will create a copy of this repository in your account.
 
+### If you already forked this repository, make sure to update your fork, and you can skip this step.
+
+<img width="1058" height="752" alt="image" src="https://github.com/user-attachments/assets/9d8155e3-37a1-418a-9970-1810f28d72c2" width="800" />
+
 ## Clone the repository
 
 <img src="https://github.com/EvanCPSC/1st/assets/142952307/8c866bcd-8e56-4ebd-be9f-cb597aea2e53" alt="Cloning the github repo visual example" width="800" />
@@ -34,7 +38,7 @@ Change to the repository directory on your computer (if you are not already ther
 
 ## Make necessary changes and commit them
 
-Create a new Markdown file inside `/collaborators/fa24` that looks like `gh-user.md`, where `gh-user` is your GitHub username. Then, inside that file, fill out info in the following format:
+Create a new Markdown file inside `src/contributors/sp25` that looks like `gh-user.md`, where `gh-user` is your GitHub username. Then, inside that file, fill out info in the following format:
 
 ```
 ---
@@ -88,7 +92,7 @@ Soon, someone will be merging all your changes into the master branch of this pr
 
 ---
 
-### CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION
+### CONGRATULATIONS ON MAKING YOUR FIRST CONTRIBUTION
 
 Inspired by [First Contributions](https://github.com/firstcontributions/first-contributions#readme)
 

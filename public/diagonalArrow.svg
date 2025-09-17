@@ -10,13 +10,3 @@
   <path d="M4 12 L12 4" stroke="white" stroke-width="1.5"></path>
   <path d="M7 4 H12 V9" stroke="white" stroke-width="1.5"></path>
 </svg>
-
-<style is:global>
-  .arrow-link:hover .arrow-icon {
-    transform: translate(2px, -2px);
-  }
-
-  .arrow-icon {
-    transition: transform 0.3s ease;
-  }
-</style>

@@ -1,8 +1,8 @@
 <script lang="ts">
   import ContributorPopup from "./ContributorPopup.svelte";
-  import type { Fa2024MarkdownEntry } from "../types";
+  import type { ContributorMarkdownEntry } from "../types";
 
-  export let contributors: Fa2024MarkdownEntry[];
+  export let contributors: ContributorMarkdownEntry[];
 
   let isContributorDialogOpen = false;
   let contributorIndex = 0;
@@ -21,22 +21,24 @@
 
 <section class="contributors">
   {#each contributors as contributor, i}
-    <div
-      class="contributor"
-      on:click={() => openContributorDialog(i)}
-      on:keydown={() => openContributorDialog(i)}
-      role="button"
-      tabindex="0"
-    >
-      <img
-        class="profile-image"
-        src="https://github.com/{contributor.frontmatter.githubUsername}.png"
-        alt="ACM at CSUF Icon"
-        width={32}
-        height={32}
-      />
-      <span>{contributor.frontmatter.name}</span>
-    </div>
+    {#if contributor}
+      <div
+        class="contributor"
+        on:click={() => openContributorDialog(i)}
+        on:keydown={() => openContributorDialog(i)}
+        role="button"
+        tabindex="0"
+      >
+        <img
+          class="profile-image"
+          src="https://github.com/{contributor.frontmatter.githubUsername}.png"
+          alt="ACM at CSUF Icon"
+          width={32}
+          height={32}
+        />
+        <span>{contributor.frontmatter.name}</span>
+      </div>
+    {/if}
   {/each}
 </section>
 
@@ -61,6 +63,7 @@
     font-size: 0.875rem;
     font-weight: 500;
     overflow-x: hidden;
+    white-space: nowrap;
   }
 
   .contributor:hover {

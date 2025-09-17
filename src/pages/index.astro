@@ -1,8 +1,12 @@
 ---
-import DiagonalArrow from "../components/DiagonalArrow.astro";
 import FloatingBoxes from "../components/FloatingBoxes.astro";
 import Layout from "../layouts/Layout.astro";
 ---
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+/>
 
 <Layout title="1st | ACM at CSUF Open Source Software Team">
   <FloatingBoxes />
@@ -18,21 +22,27 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </h2>
     <div class="semester-links">
+      <a class="arrow-link" href="/1st/fa25">
+        <span> Fall 2025 Contributors </span>
+        <img src="/1st/diagonalArrow.svg" alt="Link Icon" class="arrow-icon" />
+      </a>
+      <a class="arrow-link" href="/1st/sp25">
+        <span> Spring 2025 Contributors </span>
+        <img src="/1st/diagonalArrow.svg" alt="Link Icon" class="arrow-icon" />
+      </a>
       <a class="arrow-link" href="/1st/fa24">
         <span> Fall 2024 Contributors </span>
-        <DiagonalArrow />
+        <img src="/1st/diagonalArrow.svg" alt="Link Icon" class="arrow-icon" />
       </a>
       <a class="arrow-link" href="/1st/sp24">
         <span> Spring 2024 Contributors </span>
-        <DiagonalArrow />
+        <img src="/1st/diagonalArrow.svg" alt="Link Icon" class="arrow-icon" />
       </a>
     </div>
   </main>
 </Layout>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
   main {
     padding: 1rem 2rem;
     max-width: max-content;
@@ -66,6 +76,14 @@ import Layout from "../layouts/Layout.astro";
 
   .semester-links > a {
     color: white;
+  }
+
+  .arrow-link:hover .arrow-icon {
+    transform: translate(2px, -2px);
+  }
+
+  .arrow-icon {
+    transition: transform 0.3s ease;
   }
 
   @media screen and (min-width: 768px) {
