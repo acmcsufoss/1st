@@ -158,5 +158,6 @@
 <style>
   svg {
     user-select: none;
+    width: min(100%, 600px);
   }
 </style>
