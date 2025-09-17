@@ -2,7 +2,6 @@
   import type { ContributorMarkdownEntry } from "../types";
   import CPUGrid from "./CPUGrid.svelte";
   import ContributorPopup from "./ContributorPopup.svelte";
-  import ContributorScene from "./ContributorScene.svelte";
   import Contributors from "./Contributors.svelte";
 
   export let contributors: ContributorMarkdownEntry[];
