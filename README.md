@@ -38,7 +38,7 @@ Change to the repository directory on your computer (if you are not already ther
 
 ## Make necessary changes and commit them
 
-Create a new Markdown file inside `src/contributors/sp25` that looks like `gh-user.md`, where `gh-user` is your GitHub username. Then, inside that file, fill out info in the following format:
+Create a new Markdown file inside `src/contributors/fa25` that looks like `gh-user.md`, where `gh-user` is your GitHub username. Then, inside that file, fill out info in the following format:
 
 ```
 ---
