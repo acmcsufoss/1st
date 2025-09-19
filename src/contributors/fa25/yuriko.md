@@ -1,6 +1,6 @@
 ---
 name: "Yuriko Ysique"
-githubUsername: "yuriko.lpz"
+githubUsername: "yuriko-lpz"
 message: "ello"
 about: "I am Design/Marketing team officer"
 programmingInterests: "Web Dev"
