@@ -5,9 +5,10 @@
   export let openContributorDialog: (i: number) => void;
 
   function randomIndex(existing: Set<string>) {
-    let x = 4, y = 4;
+    let x = -1, y = -1;
     while (
-      existing.has(`${x},${y}`)
+      existing.has(`${x},${y}`) ||
+      x < 0
     ) {
       x = Math.floor(Math.random() * 12);
       y = Math.floor(Math.random() * 12);
@@ -65,17 +66,17 @@
     {#each Array(12) as _, j}
       {#if isTaken(i, j)}
         <!-- Contributor Circle -->
-        <circle cx={i * 42 + 48} cy={j * 42 + 36} r="12" fill="#FFFFFF"
+        <img src="../assets/jellyfish.svg"
             on:mouseover={() => showHover(i, j)}
             on:mouseout={hideHover}
             on:click={() => {
                 openContributorDialog(jellyfish.indexOf(getJellyfish(i, j)));
             }}
         />
-    {:else}
+      {:else}
         <!-- Default Circle -->
         <circle cx={i * 42 + 48} cy={j * 42 + 36} r="12" fill="#FFFFFF" />
-    {/if}
+      {/if}
     {/each}
   {/each}
 
