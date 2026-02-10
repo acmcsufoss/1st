@@ -1,6 +1,6 @@
 ---
 name: "Adam Ho"
-githubUsername: "adamakh01"
+githubUsername: "FarmerAKH"
 message: "すごい"
 about: "I am a third year technically, altho second year by heart."
 programmingInterests: "Operating Systems, Software Development, C++, Python"
