@@ -4,8 +4,6 @@
   export let contributors: ContributorMarkdownEntry[] = [];
   export let openContributorDialog: (i: number) => void;
 
-  
-
   function randomIndex(existing: Set<string>) {
     let x = 4, y = 4;
     while (
@@ -76,7 +74,7 @@
         />
     {:else}
         <!-- Default Circle -->
-        <circle cx={i * 42 + 48} cy={j * 42 + 36} r="12" />
+        <circle cx={i * 42 + 48} cy={j * 42 + 36} r="12" fill="#FFFFFF" />
     {/if}
     {/each}
   {/each}

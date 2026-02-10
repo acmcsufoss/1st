@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Fall2025Contributors from "../components/Fall2025Contributors.svelte";
+import Fall2025Contributors from "../components/Spring2026Contributors.svelte";
 
 const contributors = Object.values(
   import.meta.glob("../contributors/sp26/*md", { eager: true }),
@@ -34,7 +34,7 @@ const contributors = Object.values(
       of this initiative in promoting <span class="oss">Open Source</span> in ACM!!
     </p>
   </section>
-  <Fall2025Contributors client:only="svelte" {contributors} />
+  <Spring2026Contributors client:only="svelte" {contributors} />
 </Layout>
 
 <style>
