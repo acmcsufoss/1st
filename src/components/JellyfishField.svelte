@@ -66,7 +66,9 @@
     {#each Array(12) as _, j}
       {#if isTaken(i, j)}
         <!-- Contributor Circle -->
-        <img src="../assets/jellyfish.svg"
+        <image href="/1st/jellyfish.png" width="64" height="64"
+            x={i * 42 + 16}
+            y={j * 42}
             on:mouseover={() => showHover(i, j)}
             on:mouseout={hideHover}
             on:click={() => {
