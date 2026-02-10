@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ContributorMarkdownEntry } from "../types";
-  import CPUGrid from "./JellyfishField.svelte";
+  import JellyfishField from "./JellyfishField.svelte";
   import ContributorPopup from "./ContributorPopup.svelte";
   import Contributors from "./Contributors.svelte";
 
@@ -21,7 +21,7 @@
   <ContributorPopup bind:contributor bind:isOpen={isContributorDialogOpen} />
 {/key}
 
-<CPUGrid {contributors} {openContributorDialog} />
+<JellyfishField {contributors} {openContributorDialog} />
 
 <div class="contributors-grid">
   <h2>List Of Contributors</h2>

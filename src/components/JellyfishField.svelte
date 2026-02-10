@@ -65,7 +65,7 @@
     {#each Array(12) as _, j}
       {#if isTaken(i, j)}
         <!-- Contributor Circle -->
-        <circle cx={i * 42 + 48} cy={j * 42 + 36} r="12"
+        <circle cx={i * 42 + 48} cy={j * 42 + 36} r="12" fill="#FFFFFF"
             on:mouseover={() => showHover(i, j)}
             on:mouseout={hideHover}
             on:click={() => {
