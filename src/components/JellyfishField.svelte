@@ -57,6 +57,8 @@
 
 </script>
 
+<!-- https://stackoverflow.com/questions/21368410/how-to-set-svg-width-and-svg-height-by-percent -->
+ 
 <svg width="600" height="600" viewBox="0 0 600 536" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:auto;">
   <!-- Background Square -->
   <rect x="24" y="12" width="512" height="512" fill="#0a5447" rx="10" ry="10" />
@@ -65,7 +67,7 @@
   {#each Array(12) as _, i}
     {#each Array(12) as _, j}
       {#if isTaken(i, j)}
-        <!-- Contributor Circle -->
+        <!-- Contributor Jellyfish -->
         <image href="/1st/jellyfish.png" width="64" height="64"
             x={i * 42 + 16}
             y={j * 42}
@@ -75,9 +77,6 @@
                 openContributorDialog(jellyfish.indexOf(getJellyfish(i, j)));
             }}
         />
-      {:else}
-        <!-- Default Circle -->
-        <circle cx={i * 42 + 48} cy={j * 42 + 36} r="12" fill="#FFFFFF" />
       {/if}
     {/each}
   {/each}
