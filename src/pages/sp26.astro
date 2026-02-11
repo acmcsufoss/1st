@@ -7,14 +7,30 @@ const contributors = Object.values(
 );
 ---
 
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Slackey&display=swap"
   rel="stylesheet"
 />
+<script lang="ts">
+  let innerWidth = 0;
+  function smallWindow() {
+    return innerWidth <= 786;
+  }
+</script>
+<svelte:window bind:innerWidth></svelte:window>
 
-<Layout title="Fall 2025 Contributors | 1st">
+<Layout title="Spring 2026 Contributors | 1st">
   <section class="text-content">
-    <h1>Spring 2026 Contributors</h1>
+    <svg width="100%" height="256" xmlns="http://www.w3.org/2000/svg">
+      <image
+        height="256"
+        width="100%"
+        href="/1st/src/assets/sp26sponge.png"
+        style="margin: auto;"
+      />
+    </svg>
     <p>
       Welcome to <b>First Contributions!</b> This is a website that aims to simplify
       and guide the way beginners make their first contribution to the <span
@@ -38,6 +54,15 @@ const contributors = Object.values(
 </Layout>
 
 <style>
+  body {
+    background: linear-gradient(
+      to bottom,
+      rgb(97, 187, 216),
+      rgb(80, 80, 202),
+      rgb(21, 21, 153)
+    );
+    font-family: "Slackey", sans-serif;
+  }
   .text-content {
     margin-block: 5rem;
     display: flex;

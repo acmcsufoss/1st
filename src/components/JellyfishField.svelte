@@ -10,8 +10,8 @@
       existing.has(`${x},${y}`) ||
       x < 0
     ) {
-      x = Math.floor(Math.random() * 12);
-      y = Math.floor(Math.random() * 12);
+      x = Math.floor(Math.random() * 8);
+      y = Math.floor(Math.random() * 8);
     }
     existing.add(`${x},${y}`);
     return [x, y];
@@ -59,24 +59,25 @@
 
 <!-- https://stackoverflow.com/questions/21368410/how-to-set-svg-width-and-svg-height-by-percent -->
  
-<svg width="600" height="600" viewBox="0 0 600 536" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:auto;">
-  <!-- Background Square -->
-  <rect x="24" y="12" width="512" height="512" fill="#0a5447" rx="10" ry="10" />
+<svg width="100%" height="auto" viewBox="0 0 832 832" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:auto;">
 
   <!-- Circle Generation -->
-  {#each Array(12) as _, i}
-    {#each Array(12) as _, j}
+  {#each Array(8) as _, i}
+    {#each Array(8) as _, j}
       {#if isTaken(i, j)}
         <!-- Contributor Jellyfish -->
-        <image href="/1st/jellyfish.png" width="64" height="64"
-            x={i * 42 + 16}
-            y={j * 42}
+        <image href="/1st/src/assets/jellyfish.png" width="128" height="128"
+            x={i * 96+Math.floor(Math.random() * 16)}
+            y={j * 96+Math.floor(Math.random() * 16)}
             on:mouseover={() => showHover(i, j)}
             on:mouseout={hideHover}
             on:click={() => {
                 openContributorDialog(jellyfish.indexOf(getJellyfish(i, j)));
             }}
         />
+        {:else}
+            <!-- Default Circle -->
+          <circle cx={i * 96+64} cy={j * 96+64} r="16" fill="#FFFFFF" />
       {/if}
     {/each}
   {/each}
@@ -85,17 +86,17 @@
   <!-- Hover Box -->
   {#if hovered.name}
     <rect
-      x={hovered.x * 42 + 48 - (hovered.name.length * 6)}
-      y={hovered.y * 42 - 6}
-      width={hovered.name.length * 12}
+      x={hovered.x * 96 + 48 - (hovered.name.length * 6)}
+      y={hovered.y * 96}
+      width={hovered.name.length * 12.5}
       height="28"
       fill="#2b2b2b"
       opacity="0.8"
       rx="4"
     />
     <text
-      x={hovered.x * 42 + 48}
-      y={hovered.y * 42 + 10}
+      x={hovered.x * 96 + 48}
+      y={hovered.y * 96 + 16}
       font-size="16"
       fill="#FFFFFE"
       text-anchor="middle"
