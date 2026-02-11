@@ -77,7 +77,7 @@
         />
         {:else}
             <!-- Default Circle -->
-          <circle cx={i * 96+64} cy={j * 96+64} r="16" fill="#FFFFFF" />
+          <!-- <circle cx={i * 96+64} cy={j * 96+64} r="16" fill="#FFFFFF" /> -->
       {/if}
     {/each}
   {/each}
@@ -86,9 +86,9 @@
   <!-- Hover Box -->
   {#if hovered.name}
     <rect
-      x={hovered.x * 96 + 48 - (hovered.name.length * 6)}
+      x={hovered.x * 96 + 48 - (hovered.name.length * 7)}
       y={hovered.y * 96}
-      width={hovered.name.length * 12.5}
+      width={hovered.name.length * 14}
       height="28"
       fill="#2b2b2b"
       opacity="0.8"
