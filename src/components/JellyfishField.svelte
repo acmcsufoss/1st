@@ -10,7 +10,7 @@
       existing.has(`${x},${y}`) ||
       x < 0
     ) {
-      x = Math.floor(Math.random() * 8);
+      x = Math.floor(Math.random() * 12);
       y = Math.floor(Math.random() * 8);
     }
     existing.add(`${x},${y}`);
@@ -59,16 +59,16 @@
 
 <!-- https://stackoverflow.com/questions/21368410/how-to-set-svg-width-and-svg-height-by-percent -->
  
-<svg width="100%" height="auto" viewBox="0 0 832 832" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:auto;">
+<svg viewBox="0 0 1472 832" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block; margin:auto; height=auto; width=95%">
 
   <!-- Circle Generation -->
-  {#each Array(8) as _, i}
+  {#each Array(12) as _, i}
     {#each Array(8) as _, j}
       {#if isTaken(i, j)}
         <!-- Contributor Jellyfish -->
         <image href="/1st/assets/jellyfish.png" width="128" height="128"
-            x={i * 96+Math.floor(Math.random() * 16)}
-            y={j * 96+Math.floor(Math.random() * 16)}
+            x={i * 112+48+Math.floor(Math.random() * 16)}
+            y={j * 96+8+Math.floor(Math.random() * 16)}
             on:mouseover={() => showHover(i, j)}
             on:mouseout={hideHover}
             on:click={() => {
@@ -77,7 +77,7 @@
         />
         {:else}
             <!-- Default Circle -->
-          <!-- <circle cx={i * 96+64} cy={j * 96+64} r="16" fill="#FFFFFF" /> -->
+          <!-- <circle cx={i * 112+64+48} cy={j * 96+64+8} r="16" fill="#FFFFFF" /> -->
       {/if}
     {/each}
   {/each}
@@ -86,7 +86,7 @@
   <!-- Hover Box -->
   {#if hovered.name}
     <rect
-      x={hovered.x * 96 + 48 - (hovered.name.length * 7)}
+      x={hovered.x * 112 + 96 - (hovered.name.length * 7)}
       y={hovered.y * 96}
       width={hovered.name.length * 14}
       height="28"
@@ -95,7 +95,7 @@
       rx="4"
     />
     <text
-      x={hovered.x * 96 + 48}
+      x={hovered.x * 112 + 96}
       y={hovered.y * 96 + 16}
       font-size="16"
       fill="#FFFFFE"
@@ -108,10 +108,3 @@
   {/if}
   
 </svg>
-
-<style>
-  svg {
-    user-select: none;
-    width: min(100%, 600px);
-  }
-</style>
