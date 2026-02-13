@@ -4,6 +4,6 @@ githubUsername: "Utheg1"
 message: "Hello"
 about: " Hello Guys "
 programmingInterests: "I have no idea yet"
-hobbies: "Sports, videos, and watching anime"
+hobbies: "Sports, videos, and watching Anime"
 extraLink: ""
 ---
