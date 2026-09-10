@@ -20,6 +20,9 @@ const arrivals = [
 ];
 assert.deepEqual(flightStatus(arrivals, 0), { seconds: 10, rocketsAhead: 1 });
 assert.deepEqual(flightStatus(arrivals, 2), { seconds: 0, rocketsAhead: 0 });
-assert.deepEqual(flightStatus(arrivals, -1), { seconds: null, rocketsAhead: null });
+assert.deepEqual(flightStatus(arrivals, -1), {
+  seconds: null,
+  rocketsAhead: null,
+});
 assert.deepEqual(flightStatus([], 0), { seconds: null, rocketsAhead: null });
 console.log("Flight timing checks passed");

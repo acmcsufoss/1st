@@ -56,13 +56,15 @@ const boxStyles = [
 
 <Layout title="Fall 2024 Contributors | 1st">
   <main>
-    {boxStyles.map((boxStyle) => <Box style={boxStyle} float={false} />)}
+    {boxStyles.map((boxStyle) => (
+      <Box style={boxStyle} float={false} />
+    ))}
 
     <h1>Fall 2024 Contributors</h1>
 
     <p style="text-align: center;">
-      The Fall 2024 semester had <span class="oss">{contributors.length}</span> total contributors!
-      Click on a contributor to know more about them!
+      The Fall 2024 semester had <span class="oss">{contributors.length}</span>{" "}
+      total contributors! Click on a contributor to know more about them!
     </p>
     <Contributors client:only="svelte" contributors={contributors} />
   </main>

@@ -2,7 +2,7 @@
 const { style, float } = Astro.props;
 ---
 
-{(<div class={`box ${float ? "animate" : ""}`} style={style} />)}
+{<div class={`box ${float ? "animate" : ""}`} style={style} />}
 
 <style>
   .box {
