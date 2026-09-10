@@ -7,6 +7,7 @@
   export let contributors: ContributorMarkdownEntry[];
 
   let contributorIndex = 0;
+  let selectedContributor = 0;
   let scene: HTMLDivElement;
   let dashboard: HTMLDivElement;
 
@@ -27,8 +28,7 @@
         const sceneBox = scene.getBoundingClientRect();
         const dashboardBox = panel.getBoundingClientRect();
         const selector = `[data-contributor-index="${contributorIndex}"]`;
-        const selected = field.querySelector(`${selector}.selected`);
-        const rockets = selected ? [selected] : field.querySelectorAll(selector);
+        const rockets = field.querySelectorAll(selector);
 
         for (const rocket of rockets) {
           const box = rocket.getBoundingClientRect();
@@ -57,13 +57,14 @@
 
   function openContributorDialog(i: number) {
     contributorIndex = i;
+    selectedContributor = i;
   }
 
   $: contributor = contributors[contributorIndex];
 </script>
 
 <div class="rocket-scene" bind:this={scene}>
-  <RocketField {contributors} {openContributorDialog} />
+  <RocketField {contributors} {openContributorDialog} bind:selectedContributor />
   {#if contributor}
     <div class="dashboard-dock" bind:this={dashboard}>
       <RocketDashboard

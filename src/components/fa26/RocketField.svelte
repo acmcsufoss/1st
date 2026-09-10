@@ -5,7 +5,7 @@
   export let contributors: ContributorMarkdownEntry[] = [];
   export let openContributorDialog: (i: number) => void;
 
-  let selectedRocket = -1;
+  export let selectedContributor = -1;
 
   // Repeat the full list until we have at least four rockets: no long empty gaps.
   $: copies = Math.ceil(4 / (contributors.length || 1));
@@ -15,7 +15,8 @@
   }));
 </script>
 
-<svelte:window on:click={() => selectedRocket = -1} />
+<!-- Clear first; rocket/list click handlers can then select a contributor. -->
+<svelte:window on:click|capture={() => selectedContributor = -1} />
 
 <div
   class="rocket-field"
@@ -35,14 +36,14 @@
     <button
       class="rocket-slot"
       data-contributor-index={i % contributors.length}
-      class:selected={selectedRocket === i}
-      aria-pressed={selectedRocket === i}
+      class:selected={selectedContributor === i % contributors.length}
+      aria-pressed={selectedContributor === i % contributors.length}
       type="button"
       aria-label={`Open ${contributor.frontmatter.name}`}
       style:--offset={`${offset}px`}
       style:animation-delay={`${-i * 6}s`}
       on:click|stopPropagation={() => {
-        selectedRocket = i;
+        selectedContributor = i % contributors.length;
         openContributorDialog(i % contributors.length);
       }}
     >
