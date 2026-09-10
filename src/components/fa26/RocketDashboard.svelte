@@ -33,7 +33,7 @@
       <div class="error-center">
         <p>SECURITY LEVEL: RED</p>
         <h2>ERROR</h2>
-        <strong>FINAL GATE / LOCKED</strong>
+        <strong>CORRUPTED PILOT / LOCKED</strong>
       </div>
       <div class="error-grid">
         <span>DATA CORRUPTED</span>
