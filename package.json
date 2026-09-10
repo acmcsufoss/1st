@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "check": "astro check",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write --log-level warn ."
@@ -20,6 +21,7 @@
     "three": "^0.186.0"
   },
   "devDependencies": {
+    "@types/node": "^22.20.2",
     "@types/three": "^0.185.4",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^1.0.0"
