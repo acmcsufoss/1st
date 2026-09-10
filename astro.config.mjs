@@ -5,7 +5,6 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://acmcsufoss.github.io",
-  base: "1st",
+  site: "https://1st.acmcsuf.com",
   integrations: [svelte()],
 });

@@ -66,7 +66,7 @@
     {#each Array(8) as _, j}
       {#if isTaken(i, j)}
         <!-- Contributor Jellyfish -->
-        <image href="/1st/assets/jellyfish.png" width="128" height="128"
+        <image href="/assets/jellyfish.png" width="128" height="128"
             x={i * 112+48+Math.floor(Math.random() * 16)}
             y={j * 96+8+Math.floor(Math.random() * 16)}
             on:mouseover={() => showHover(i, j)}

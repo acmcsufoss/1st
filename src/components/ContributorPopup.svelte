@@ -27,7 +27,7 @@
     out:fly={{ y: 40, duration: 150 }}
   >
     <button class="custom-close-btn" on:click={toggleContainer}>
-      <img src="/1st/closeIcon.svg" alt="Close Icon" />
+      <img src="/closeIcon.svg" alt="Close Icon" />
     </button>
 
     <h2>{name}</h2>
