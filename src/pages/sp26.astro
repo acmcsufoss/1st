@@ -19,7 +19,7 @@ const contributors = Object.values(
     return innerWidth <= 786;
   }
 </script>
-<svelte:window bind:innerWidth></svelte>
+<svelte :window bind:innerWidth></svelte>
 
 <Layout title="Spring 2026 Contributors | 1st">
   <section class="text-content">
@@ -32,23 +32,24 @@ const contributors = Object.values(
       />
     </svg>
     <p>
-      Welcome to <b>First Contributions!</b> This is a website that aims to simplify
-      and guide the way beginners make their first contribution to the <span
-        class="oss">acmcsufoss</span
-      >
-      organization! If you would like to make a contribution to this website, follow
-      the instructions in the repository's
+      Welcome to <b>First Contributions!</b> This is a website that aims to
+      simplify and guide the way beginners make their first contribution to the{" "}
+      <span class="oss">acmcsufoss</span>
+      organization! If you would like to make a contribution to this website,
+      follow the instructions in the repository's
       <a
         href="https://github.com/acmcsufoss/1st?tab=readme-ov-file#1st--first-contributions-to-acmcsuf"
         target="_blank"
-        >README
-      </a>.
+      >
+        README
+      </a>
+      .
     </p>
     <p>
-      This semester we have a total of <span class="oss"
-        >{contributors.length}</span
-      > contributors and we thank each and every one of you for willing to be part
-      of this initiative in promoting <span class="oss">Open Source</span> in ACM!!
+      This semester we have a total of{" "}
+      <span class="oss">{contributors.length}</span> contributors and we thank
+      each and every one of you for willing to be part of this initiative in
+      promoting <span class="oss">Open Source</span> in ACM!!
     </p>
   </section>
   <Spring2026Contributors client:only="svelte" {contributors} />

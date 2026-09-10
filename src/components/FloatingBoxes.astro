@@ -30,5 +30,7 @@ const boxes = Array.from({ length: numBoxes }, () => generateRandomStyles());
 ---
 
 <div class="container">
-  {boxes.map((style) => <Box style={style} float={true} />)}
+  {boxes.map((style) => (
+    <Box style={style} float={true} />
+  ))}
 </div>

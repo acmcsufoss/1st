@@ -1,30 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Fall2025Contributors from "../components/Fall2025Contributors.svelte";
+import Fall2026Contributors from "../components/fa26/Fall2026Contributors.svelte";
 
 const contributors = Object.values(
-  import.meta.glob("../contributors/fa25/*md", { eager: true }),
+  import.meta.glob("../contributors/fa26/*md", { eager: true }),
 );
 ---
 
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
   rel="stylesheet"
+  type="text/css"
+  href="//fonts.googleapis.com/css?family=Orbitron"
 />
 
-<Layout title="Fall 2025 Contributors | 1st">
+<script lang="ts">
+  let innerWidth = 0;
+  function smallWindow() {
+    return innerWidth <= 786;
+  }
+</script>
+<svelte :window bind:innerWidth></svelte>
+
+<Layout title="Fall 2026 Contributors | 1st">
   <section class="text-content">
-    <h1>Fall 2025 Contributors</h1>
+    <h1>Fall 2026 First Contributors</h1>
     <p>
-      <b>First Contributions</b> is a website that aims to simplify and guide
-      the way beginners make their first contribution to the{" "}
-      <span class="oss">acmcsufoss</span>organization! If you would like to make
-      a contribution to this website, follow the instructions in the
-      repository's{" "}
+      <i>Anddddddd~ liftoff!!!</i>
+    </p>
+    <p>
+      Hello and welcome to <b>First Contributions!</b> This is a website that
+      aims to simplify and guide the way beginners make their first contribution
+      to the{" "}
+      <a class="oss" href="https://github.com/acmcsufoss" target="_blank">
+        acmcsufoss{" "}
+      </a>
+      organization! If you would like to make a contribution to this website,
+      follow the instructions in the repository's
       <a
         href="https://github.com/acmcsufoss/1st?tab=readme-ov-file#1st--first-contributions-to-acmcsuf"
         target="_blank"
       >
+        {" "}
         README
       </a>
       .
@@ -36,10 +54,13 @@ const contributors = Object.values(
       promoting <span class="oss">Open Source</span> in ACM!!
     </p>
   </section>
-  <Fall2025Contributors client:only="svelte" {contributors} />
+  <Fall2026Contributors client:only="svelte" {contributors} />
 </Layout>
 
 <style>
+  body {
+    font-family: "Orbitron", sans-serif;
+  }
   .text-content {
     margin-block: 5rem;
     display: flex;
@@ -48,19 +69,13 @@ const contributors = Object.values(
   }
 
   h1 {
+    color: white;
     font-size: 2.5rem;
     font-weight: bolder;
-    animation: gradientChange 20s ease-in-out infinite;
-    background: linear-gradient(
-      60deg,
-      rgb(var(--color-oss-team)),
-      rgb(228, 10, 178),
-      rgb(194, 164, 20)
-    );
+    text-decoration: underline;
     background-size: 400% 400%; /* Allows for movement */
     background-position: 0% 50%; /* Initial position */
     background-clip: text;
-    color: transparent;
     max-width: max-content;
     margin: auto;
     text-align: center;
