@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Fall2026Contributors from "../components/Fall2026Contributors.svelte";
+import Fall2026Contributors from "../components/fa26/Fall2026Contributors.svelte";
 
 const contributors = Object.values(
   import.meta.glob("../contributors/fa26/*md", { eager: true }),
@@ -25,11 +25,11 @@ const contributors = Object.values(
       Fall 2026 First Contributors
     </h1>
     <p>
-    Anddddddd~ liftoff!!!
+    <i>Anddddddd~ liftoff!!!</i>
     </p>
     <p>
-      Welcome to <b>First Contributions!</b> This is a website that aims to simplify
-      and guide the way beginners make their first contribution to the <span class="oss">acmcsufoss </span> 
+      Hello and welcome to <b>First Contributions!</b> This is a website that aims to simplify
+      and guide the way beginners make their first contribution to the <a class="oss" href="https://github.com/acmcsufoss" target="_blank">acmcsufoss </a> 
       organization! If you would like to make a contribution to this website, follow
       the instructions in the repository's 
       <a
