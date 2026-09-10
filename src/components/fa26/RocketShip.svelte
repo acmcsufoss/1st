@@ -10,12 +10,12 @@
 
   // beautiful rocket ship :D
   const rocket = {
-    src: "/1st/assets/fa26/rocket_ship.png",
+    src: "/assets/fa26/rocket_ship.png",
     alt: "Rocket ship",
   };
 
   const flame = {
-    src: "/1st/assets/fa26/flame.png",
+    src: "/assets/fa26/flame.png",
     alt: "Rocket flame",
   };
 
