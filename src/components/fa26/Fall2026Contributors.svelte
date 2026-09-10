@@ -94,12 +94,12 @@
 
   .dashboard-dock {
     position: relative;
-    z-index: 2;
+    z-index: 6;
   }
 
   .connector {
     position: absolute;
-    z-index: 1;
+    z-index: 5; 
     inset: 0;
     width: 100%;
     height: 100%;

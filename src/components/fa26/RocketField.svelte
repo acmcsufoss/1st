@@ -74,7 +74,7 @@
   .rocket-field::after {
     content: "";
     position: absolute;
-    z-index: 3;
+    z-index: 4;
     inset: 0;
     pointer-events: none;
     background:
@@ -115,7 +115,7 @@
 
   .field-rail {
     position: absolute;
-    z-index: 4;
+    z-index: 1;
     left: 0;
     right: 0;
     height: 36px;
@@ -137,7 +137,7 @@
 
   .rocket-slot {
     position: absolute;
-    z-index: 2;
+    z-index: 3; /* Above the connector; below the edge fades. */
     left: calc(50% + var(--offset));
     top: calc(50% + var(--offset));
     width: 400px;
