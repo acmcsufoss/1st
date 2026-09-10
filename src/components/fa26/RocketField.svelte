@@ -5,6 +5,8 @@
   export let contributors: ContributorMarkdownEntry[] = [];
   export let openContributorDialog: (i: number) => void;
 
+  let selectedRocket = -1;
+
   // Repeat the full list until we have at least four rockets: no long empty gaps.
   $: copies = Math.ceil(4 / (contributors.length || 1));
   $: rockets = Array.from({ length: copies }, () => contributors).flat().map((contributor) => ({
@@ -12,6 +14,8 @@
     offset: Math.round(Math.random() * 280 - 140),
   }));
 </script>
+
+<svelte:window on:click={() => selectedRocket = -1} />
 
 <div
   class="rocket-field"
@@ -26,11 +30,16 @@
     -->
     <button
       class="rocket-slot"
+      class:selected={selectedRocket === i}
+      aria-pressed={selectedRocket === i}
       type="button"
       aria-label={`Open ${contributor.frontmatter.name}`}
       style:--offset={`${offset}px`}
-      style:animation-delay={`${-i * 4}s`}
-      on:click={() => openContributorDialog(i % contributors.length)}
+      style:animation-delay={`${-i * 6}s`}
+      on:click|stopPropagation={() => {
+        selectedRocket = i;
+        openContributorDialog(i % contributors.length);
+      }}
     >
       <svg class="border" viewBox="0 0 400 400" aria-hidden="true">
         <polyline points="400,0 0,0 0,400 400,400, 400,0" class="bg-line" />
@@ -75,6 +84,7 @@
   }
 
   .rocket-slot:hover,
+  .rocket-slot.selected,
   .rocket-slot:focus-visible {
     background: rgb(79 149 218 / 20%);
   }
@@ -97,6 +107,7 @@
 
 
   .rocket-slot:hover .bg-line,
+  .rocket-slot.selected .bg-line,
   .rocket-slot:focus-visible .bg-line {
     opacity: 0.25;
     transition: opacity 0.25s ease-in-out;
@@ -110,6 +121,7 @@
   }
 
   .rocket-slot:hover .hl-line,
+  .rocket-slot.selected .hl-line,
   .rocket-slot:focus-visible .hl-line {
     opacity: 1;
     stroke-dashoffset: -700px;
