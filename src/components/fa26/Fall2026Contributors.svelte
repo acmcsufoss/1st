@@ -6,8 +6,7 @@
 
   export let contributors: ContributorMarkdownEntry[];
 
-  let contributorIndex = 0;
-  let selectedContributor = 0;
+  let selectedContributor = -1;
   let scene: HTMLDivElement;
   let dashboard: HTMLDivElement;
 
@@ -27,7 +26,7 @@
         const fieldBox = field.getBoundingClientRect();
         const sceneBox = scene.getBoundingClientRect();
         const dashboardBox = panel.getBoundingClientRect();
-        const selector = `[data-contributor-index="${contributorIndex}"]`;
+        const selector = `[data-contributor-index="${selectedContributor}"]`;
         const rockets = field.querySelectorAll(selector);
 
         for (const rocket of rockets) {
@@ -56,23 +55,28 @@
   }
 
   function openContributorDialog(i: number) {
-    contributorIndex = i;
     selectedContributor = i;
   }
 
-  $: contributor = contributors[contributorIndex];
+  $: contributor = contributors[selectedContributor];
 </script>
+
+<svelte:window on:click|capture={(event) => {
+  if (!(event.target instanceof Element) || !event.target.closest(".dashboard")) {
+    selectedContributor = -1;
+  }
+}} />
 
 <div class="rocket-scene" bind:this={scene}>
   <RocketField {contributors} {openContributorDialog} bind:selectedContributor />
+  <div class="dashboard-dock" bind:this={dashboard}>
+    <RocketDashboard
+      {contributor}
+      queuePosition={selectedContributor}
+      contributorCount={contributors.length}
+    />
+  </div>
   {#if contributor}
-    <div class="dashboard-dock" bind:this={dashboard}>
-      <RocketDashboard
-        contributor={contributor}
-        queuePosition={contributorIndex}
-        contributorCount={contributors.length}
-      />
-    </div>
     <svg class="connector" aria-hidden="true">
       <line use:trackRocket />
     </svg>

@@ -15,9 +15,6 @@
   }));
 </script>
 
-<!-- Clear first; rocket/list click handlers can then select a contributor. -->
-<svelte:window on:click|capture={() => selectedContributor = -1} />
-
 <div
   class="rocket-field"
   style:--duration={`${rockets.length * 6}s`}

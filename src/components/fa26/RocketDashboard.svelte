@@ -1,13 +1,13 @@
 <script lang="ts">
   import type { ContributorMarkdownEntry } from "../../types";
 
-  export let contributor: ContributorMarkdownEntry;
+  export let contributor: ContributorMarkdownEntry | undefined = undefined;
   export let queuePosition = 0;
   export let contributorCount = 1;
 
-  $: profile = contributor.frontmatter;
+  $: profile = contributor?.frontmatter;
   $: eta = queuePosition * 6;
-  $: isInvalid = [
+  $: isInvalid = !!profile && [
     profile.name,
     profile.githubUsername,
     profile.message,
@@ -56,10 +56,11 @@
       <div class="monitor-screen">
         <div class="screen-grid" aria-hidden="true"></div>
         <div class="screen-topline">
-          <span>IDENTIFICATION COMPLETE</span>
-          <strong>&lt ACTIVE &gt</strong>
+          <span>{profile ? "IDENTIFICATION COMPLETE" : "AWAITING SELECTION"}</span>
+          <strong>{profile ? "< ACTIVE >" : "< STANDBY >"}</strong>
         </div>
 
+        {#if profile}
         <div class="profile-heading">
           <img
             src={`https://github.com/${profile.githubUsername}.png`}
@@ -90,24 +91,34 @@
             <p>{profile.message || "NO MESSAGE RECEIVED"}</p>
           </div>
         </div>
+        {:else}
+          <div class="empty-screen">
+            <h2>NO USER SELECTED</h2>
+            <p>Select a rocket or a contributor from the list below.</p>
+          </div>
+        {/if}
       </div>
     </div>
 
     <aside class="instrument-panel">
-      <div class="instrument warning">WARNING</div>
-      <div class="instrument">ROCKETS AHEAD <b>{queuePosition}</b></div>
-      <div class="instrument">EST. ARRIVAL <b>{eta}s</b></div>
+      <div class="instrument warning">{isInvalid ? "WARNING" : profile ? "CONNECTED" : "STANDBY"}</div>
+      <div class="instrument">ROCKETS AHEAD <b>{profile ? queuePosition : "—"}</b></div>
+      <div class="instrument">EST. ARRIVAL <b>{profile ? `${eta}s` : "—"}</b></div>
       <div class="instrument">FLEET SIZE <b>{contributorCount}</b></div>
       <div class="radar" aria-hidden="true"><i></i></div>
     </aside>
   </div>
 
   <footer class="dashboard-footer">
+    {#if profile}
     <a href={`https://github.com/${profile.githubUsername}`} target="_blank" rel="noreferrer">
       ACCESS GITHUB ↗
     </a>
     {#if profile.extraLink}
       <a href={profile.extraLink} target="_blank" rel="noreferrer">ACCESS EXTERNAL LINK ↗</a>
+    {/if}
+    {:else}
+      <span>PERSONNEL LINK / IDLE</span>
     {/if}
     <span class="lights" aria-hidden="true">● ● ●</span>
   </footer>
@@ -291,6 +302,16 @@
   .orange-label,
   .readout > span {
     color: #006653; /* Darker teal keeps small labels readable on the light screen. */
+  }
+
+  .empty-screen {
+    position: relative;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
   }
 
   .profile-heading {
