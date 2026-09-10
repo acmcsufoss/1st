@@ -413,7 +413,7 @@
     left: 50%;
     width: 50%;
     height: 2px;
-    background: rgb(17 212 177);
+    background: rgb(0 0 0);
     content: "";
     transform-origin: left;
     animation: sweep 2s linear infinite;
