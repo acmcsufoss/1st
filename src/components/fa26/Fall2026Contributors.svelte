@@ -65,7 +65,7 @@
 <div class="rocket-scene" bind:this={scene}>
   <RocketField {contributors} {openContributorDialog} />
   {#if contributor}
-    <div bind:this={dashboard}>
+    <div class="dashboard-dock" bind:this={dashboard}>
       <RocketDashboard
         contributor={contributor}
         queuePosition={contributorIndex}
@@ -91,9 +91,14 @@
     isolation: isolate;
   }
 
+  .dashboard-dock {
+    position: relative;
+    z-index: 2;
+  }
+
   .connector {
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     inset: 0;
     width: 100%;
     height: 100%;

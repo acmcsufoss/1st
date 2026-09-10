@@ -22,6 +22,10 @@
   style:--duration={`${rockets.length * 6}s`}
   style:--end={`${rockets.length * 450 - 900}px`}
 >
+  <div class="space-background" aria-hidden="true"></div>
+  <div class="field-rail top-rail" aria-hidden="true"></div>
+  <div class="field-rail bottom-rail" aria-hidden="true"></div>
+
   {#each rockets as { contributor, offset }, i}
     <!--  
     For the sake of collision, each rocket has its own slot 
@@ -66,8 +70,73 @@
     overflow: hidden;
   }
 
+  .rocket-field::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(to bottom, rgb(var(--color-primary)), transparent 140px),
+      linear-gradient(to top, rgb(var(--color-primary)), transparent 140px),
+      linear-gradient(to right, rgb(var(--color-primary)), transparent min(140px, 20%)),
+      linear-gradient(to left, rgb(var(--color-primary)), transparent min(140px, 20%));
+  }
+
+  .space-background {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 55% 45%, #201333, #080912 65%, #000);
+    mask-image: linear-gradient(to bottom, transparent, black 12% 88%, transparent),
+      linear-gradient(to right, transparent, black 10% 90%, transparent);
+    mask-composite: intersect;
+  }
+
+  .space-background::before,
+  .space-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 25px 43px, #e7dcff 1px, transparent 1.5px) 0 0 / 173px 191px,
+      radial-gradient(circle at 110px 80px, #a4c8dc 0.7px, transparent 1.2px) 0 0 / 251px 137px;
+    opacity: 0.4;
+    animation: twinkle 5s ease-in-out infinite alternate;
+  }
+
+  .space-background::after {
+    background-position: 83px 57px, 41px 113px;
+    animation-delay: -3s;
+    animation-duration: 7s;
+  }
+
+  .field-rail {
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    right: 0;
+    height: 36px;
+    pointer-events: none;
+    background:
+      linear-gradient(to bottom, transparent, rgb(17 212 177 / 45%) 48% 52%, transparent),
+      repeating-linear-gradient(to right, transparent 0 39px, rgb(17 212 177 / 20%) 39px 40px);
+    mask-image: linear-gradient(to right, transparent, black 20% 80%, transparent),
+      linear-gradient(to bottom, transparent, black 35% 65%, transparent);
+    mask-composite: intersect;
+  }
+
+  .top-rail { top: 0; }
+  .bottom-rail { bottom: 0; }
+
+  @keyframes twinkle {
+    to { opacity: 0.85; }
+  }
+
   .rocket-slot {
     position: absolute;
+    z-index: 2;
     left: calc(50% + var(--offset));
     top: calc(50% + var(--offset));
     width: 400px;
@@ -143,6 +212,11 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .space-background::before,
+    .space-background::after {
+      animation: none;
+    }
+
     .rocket-field {
       display: flex;
       flex-wrap: wrap;
