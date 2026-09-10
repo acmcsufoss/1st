@@ -10,10 +10,6 @@
   $: isInvalid = !!profile && [
     profile.name,
     profile.githubUsername,
-    profile.message,
-    profile.about,
-    profile.programmingInterests,
-    profile.hobbies,
   ].some((value) => !value?.trim());
 </script>
 
