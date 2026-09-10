@@ -1,0 +1,97 @@
+<script lang="ts">
+  export let middleImageSrc: string;
+  export let middleImageAlt = "Rocket contributor";
+  export let buttonLabel = "Rocket ship";
+  export let rotation = 0;
+
+  $: rocketRotation = `${rotation}deg`;
+  $: middleImageRotation = `${-rotation}deg`;
+
+  // beautiful rocket ship :D
+  const rocket = {
+    src: "/1st/assets/fa26/rocket_ship.png",
+    alt: "Rocket ship",
+  };
+
+  const flame = {
+    src: "/1st/assets/fa26/flame.png",
+    alt: "Rocket flame",
+  };
+
+  // Some variation in size would be nice so- go go gadget rand
+  const rocketWidth = `${170 + Math.floor(Math.random() * 21)}px`;
+</script>
+
+<div class="rocket" style:width={rocketWidth}>
+  <div class="rocket-body" style:transform={`rotate(${rocketRotation})`}>
+    <img class="flame" src={flame.src} alt={flame.alt} />
+    <img
+      class="middle-image"
+      src={middleImageSrc}
+      alt={middleImageAlt}
+      style:transform={`translate(-50%, -50%) rotate(${middleImageRotation})`}
+    />
+    <img class="rocket-shell" src={rocket.src} alt={rocket.alt} />
+  </div>
+  <button class="rocket-button" type="button" aria-label={buttonLabel} on:click></button>
+</div>
+
+<style>
+  .rocket {
+    position: relative;
+    padding-bottom: 20%;
+    line-height: 0;
+  }
+
+  .rocket-body {
+    position: relative;
+  }
+
+  .rocket-shell {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .middle-image {
+    position: absolute;
+    z-index: 1;
+    top: 38%;
+    left: 50%;
+    width: 44%;
+    height: 26%;
+    border-radius: 999px;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .flame {
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    bottom: -19%;
+    width: 46%;
+    transform: translateX(-50%) scale(0.82);
+    transform-origin: top center;
+    animation: thrust 0.28s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  .rocket-button {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  @keyframes thrust {
+    to {
+      transform: translateX(-50%) scale(1.12);
+    }
+  }
+</style>
