@@ -30,6 +30,7 @@
     -->
     <button
       class="rocket-slot"
+      data-contributor-index={i % contributors.length}
       class:selected={selectedRocket === i}
       aria-pressed={selectedRocket === i}
       type="button"
@@ -86,7 +87,7 @@
   .rocket-slot:hover,
   .rocket-slot.selected,
   .rocket-slot:focus-visible {
-    background: rgb(79 149 218 / 20%);
+    background: rgb(17 212 177 / 20%);
   }
 
   .border {
@@ -97,7 +98,7 @@
     height: 100%;
     fill: none;
     pointer-events: none;
-    stroke: white;
+    stroke: rgb(17 212 177);
     stroke-width: 3;
   }
 
@@ -128,7 +129,7 @@
   }
 
   .rocket-slot:focus-visible {
-    outline: 3px solid white;
+    outline: 3px solid rgb(17 212 177);
     outline-offset: 6px;
   }
 

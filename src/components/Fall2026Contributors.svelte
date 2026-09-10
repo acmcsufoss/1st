@@ -1,34 +1,111 @@
 <script lang="ts">
   import type { ContributorMarkdownEntry } from "../types";
-  import Rocket from "./fa26/RocketShip.svelte"
   import RocketField from "./fa26/RocketField.svelte";
-  import ContributorPopup from "./ContributorPopup.svelte";
+  import RocketDashboard from "./fa26/RocketDashboard.svelte";
   import Contributors from "./Contributors.svelte";
 
   export let contributors: ContributorMarkdownEntry[];
 
-  let isContributorDialogOpen = false;
   let contributorIndex = 0;
+  let scene: HTMLDivElement;
+  let dashboard: HTMLDivElement;
+
+  // Heres a cool function! Basically this tracks the rockets and draws a line
+  // between the selected rocket and the dashboard until the rocket is unmounted.
+  // Unmounting happens when the component is no longer rendered on the screen
+  // (and removed from the DOM tree etc etc..)
+  function trackRocket(line: SVGLineElement) {
+    let frame: number;
+
+    function update() {
+      line.style.visibility = "hidden";
+      const field = scene?.querySelector(".rocket-field");
+      const panel = dashboard?.querySelector(".dashboard");
+
+      if (field && panel) {
+        const fieldBox = field.getBoundingClientRect();
+        const sceneBox = scene.getBoundingClientRect();
+        const dashboardBox = panel.getBoundingClientRect();
+        const selector = `[data-contributor-index="${contributorIndex}"]`;
+        const selected = field.querySelector(`${selector}.selected`);
+        const rockets = selected ? [selected] : field.querySelectorAll(selector);
+
+        for (const rocket of rockets) {
+          const box = rocket.getBoundingClientRect();
+          const x = box.left + box.width / 2;
+          const y = box.top + box.height / 2;
+
+          // Only connect when the rocket's center is inside the visible field.
+          if (x < Math.max(fieldBox.left, 0) || x > Math.min(fieldBox.right, window.innerWidth) ||
+              y < Math.max(fieldBox.top, 0) || y > Math.min(fieldBox.bottom, window.innerHeight)) continue;
+
+          line.setAttribute("x1", String(dashboardBox.left + dashboardBox.width / 2 - sceneBox.left));
+          line.setAttribute("y1", String(dashboardBox.top - sceneBox.top));
+          line.setAttribute("x2", String(x - sceneBox.left));
+          line.setAttribute("y2", String(y - sceneBox.top));
+          line.style.visibility = "visible";
+          break;
+        }
+      }
+
+      frame = requestAnimationFrame(update);
+    }
+
+    frame = requestAnimationFrame(update);
+    return { destroy: () => cancelAnimationFrame(frame) };
+  }
 
   function openContributorDialog(i: number) {
     contributorIndex = i;
-    isContributorDialogOpen = true;
   }
 
   $: contributor = contributors[contributorIndex];
 </script>
 
-{#key contributorIndex}
-  <ContributorPopup bind:contributor bind:isOpen={isContributorDialogOpen} />
-{/key}
-
-<RocketField {contributors} {openContributorDialog} />
+<div class="rocket-scene" bind:this={scene}>
+  <RocketField {contributors} {openContributorDialog} />
+  {#if contributor}
+    <div bind:this={dashboard}>
+      <RocketDashboard
+        contributor={contributor}
+        queuePosition={contributorIndex}
+        contributorCount={contributors.length}
+      />
+    </div>
+    <svg class="connector" aria-hidden="true">
+      <line use:trackRocket />
+    </svg>
+  {/if}
+</div>
 <div class="contributors-grid">
   <h2>List Of Contributors</h2>
-  <Contributors {contributors} />
+  <Contributors
+    {contributors}
+  />
 </div>
 
 <style>
+  .rocket-scene {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .connector {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .connector line {
+    visibility: hidden;
+    stroke: rgb(17 212 177);
+    stroke-width: 2;
+    stroke-dasharray: 8 6;
+  }
+
   .contributors-grid {
     width: min(1280px, 100%);
     margin-inline: auto;

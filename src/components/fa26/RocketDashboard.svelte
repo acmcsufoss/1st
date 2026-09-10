@@ -120,7 +120,7 @@
     margin: -1rem auto 0;
     padding: 0.8rem;
     border: 2px solid #202020;
-    background: #c7c3a5;
+    background: #b6ccc5;
     box-shadow: 0.7rem 0.7rem 0 #050505;
     color: #171717;
     font-family: "Courier New", monospace;
@@ -212,7 +212,7 @@
     right: -5rem;
     width: 5rem;
     height: 0.3rem;
-    background: #f05a28;
+    background: rgb(17 212 177);
     box-shadow: 0 0 0 2px #171717;
   }
 
@@ -224,7 +224,7 @@
     height: 0.8rem;
     border: 2px solid #171717;
     border-radius: 50%;
-    background: #f05a28;
+    background: rgb(17 212 177);
     content: "";
   }
 
@@ -235,7 +235,7 @@
     gap: 1rem;
     padding: 0.45rem 0.7rem;
     background: #171717;
-    color: #f5e9c9;
+    color: #def5ed;
     font-size: 0.75rem;
     letter-spacing: 0.08em;
   }
@@ -259,7 +259,7 @@
     min-height: 300px;
     overflow: hidden;
     padding: 1rem;
-    background: #e8e2c7;
+    background: #def5ed;
     color: #171717;
   }
 
@@ -268,8 +268,8 @@
     inset: 0;
     opacity: 0.25;
     pointer-events: none;
-    background: linear-gradient(90deg, transparent 49%, #f05a28 50%, transparent 51%),
-      linear-gradient(0deg, transparent 49%, #f05a28 50%, transparent 51%);
+    background: linear-gradient(90deg, transparent 49%, rgb(17 212 177) 50%, transparent 51%),
+      linear-gradient(0deg, transparent 49%, rgb(17 212 177) 50%, transparent 51%);
     background-size: 3rem 3rem;
   }
 
@@ -290,7 +290,7 @@
   .screen-topline strong,
   .orange-label,
   .readout > span {
-    color: #d94118;
+    color: #006653; /* Darker teal keeps small labels readable on the light screen. */
   }
 
   .profile-heading {
@@ -304,7 +304,7 @@
     width: 5rem;
     height: 5rem;
     border: 3px solid #171717;
-    filter: sepia(0.3) contrast(1.1);
+    filter: contrast(1.1);
   }
 
   h2,
@@ -346,7 +346,7 @@
   }
 
   .message {
-    border-top-color: #f05a28;
+    border-top-color: rgb(17 212 177);
   }
 
   .instrument-panel {
@@ -361,7 +361,7 @@
     gap: 0.25rem;
     padding: 0.6rem;
     border: 2px solid #171717;
-    background: #e8e2c7;
+    background: #def5ed;
     font-size: 0.65rem;
   }
 
@@ -370,7 +370,7 @@
   }
 
   .warning {
-    background: #f05a28;
+    background: rgb(17 212 177);
     color: #171717;
     font-weight: bold;
     text-align: center;
@@ -392,7 +392,7 @@
     left: 50%;
     width: 50%;
     height: 2px;
-    background: #f05a28;
+    background: rgb(17 212 177);
     content: "";
     transform-origin: left;
     animation: sweep 2s linear infinite;
@@ -403,16 +403,16 @@
   }
 
   a {
-    color: #f5e9c9;
+    color: #def5ed;
     text-decoration: none;
   }
 
   a:hover {
-    color: #f05a28;
+    color: rgb(17 212 177);
   }
 
   .lights {
-    color: #f05a28;
+    color: rgb(17 212 177);
     letter-spacing: 0.3rem;
   }
 

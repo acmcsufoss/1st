@@ -3,6 +3,7 @@
   import type { ContributorMarkdownEntry } from "../types";
 
   export let contributors: ContributorMarkdownEntry[];
+  export let selectContributor: (index: number) => void = () => {}; 
 
   let isContributorDialogOpen = false;
   let contributorIndex = 0;
@@ -24,8 +25,14 @@
     {#if contributor}
       <div
         class="contributor"
-        on:click={() => openContributorDialog(i)}
-        on:keydown={() => openContributorDialog(i)}
+        on:click={() => {
+          selectContributor(i);
+          openContributorDialog(i);
+        }}
+        on:keydown={() => {
+          selectContributor(i);
+          openContributorDialog(i);
+        }}
         role="button"
         tabindex="0"
       >
