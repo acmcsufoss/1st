@@ -58,10 +58,10 @@
   .middle-image {
     position: absolute;
     z-index: 1;
-    top: 38%;
+    top: 48%;
     left: 50%;
     width: 44%;
-    height: 26%;
+    height: 22%;
     border-radius: 999px;
     object-fit: cover;
     pointer-events: none;
@@ -71,7 +71,7 @@
     position: absolute;
     z-index: 0;
     left: 50%;
-    bottom: -19%;
+    bottom: -25%;
     width: 46%;
     transform: translateX(-50%) scale(0.82);
     transform-origin: top center;
