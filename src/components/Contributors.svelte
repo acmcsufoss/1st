@@ -3,12 +3,17 @@
   import type { ContributorMarkdownEntry } from "../types";
 
   export let contributors: ContributorMarkdownEntry[];
-  export let selectContributor: (index: number) => void = () => {}; 
+  export let selectContributor: ((index: number) => void) | undefined = undefined;
 
   let isContributorDialogOpen = false;
   let contributorIndex = 0;
 
   function openContributorDialog(i: number) {
+    if (selectContributor) {
+      selectContributor(i);
+      return;
+    }
+
     contributorIndex = i;
     isContributorDialogOpen = true;
   }
@@ -16,25 +21,19 @@
   $: contributor = contributors[contributorIndex];
 </script>
 
-{#key contributorIndex}
-  <ContributorPopup bind:contributor bind:isOpen={isContributorDialogOpen} />
-{/key}
+{#if !selectContributor && contributor}
+  {#key contributorIndex}
+    <ContributorPopup bind:contributor bind:isOpen={isContributorDialogOpen} />
+  {/key}
+{/if}
 
 <section class="contributors">
   {#each contributors as contributor, i}
     {#if contributor}
-      <div
+      <button
         class="contributor"
-        on:click={() => {
-          selectContributor(i);
-          openContributorDialog(i);
-        }}
-        on:keydown={() => {
-          selectContributor(i);
-          openContributorDialog(i);
-        }}
-        role="button"
-        tabindex="0"
+        type="button"
+        on:click={() => openContributorDialog(i)}
       >
         <img
           class="profile-image"
@@ -44,7 +43,7 @@
           height={32}
         />
         <span>{contributor.frontmatter.name}</span>
-      </div>
+      </button>
     {/if}
   {/each}
 </section>
@@ -58,6 +57,9 @@
   }
 
   .contributor {
+    font-family: inherit;
+    color: inherit;
+    text-align: left;
     cursor: pointer;
     display: flex;
     gap: 0.25rem;
