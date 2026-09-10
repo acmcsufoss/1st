@@ -1,16 +1,16 @@
 # 1st | First Contributions to acmCSUF
 
-`oss.acmcsuf.com/1st` aims to simplify and guide the way beginners make their first contribution. If you are looking to make your first contribution, follow the steps below. If you're not comfortable with command line, [here are tutorials using GUI tools](https://github.com/firstcontributions/first-contributions/blob/main/README.md#tutorials-using-other-tools). If you don't have Git on your machine, [install it](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).
+This repo aims to make it easy for beginners to make their first contribution. If you are looking to make your first contribution, follow the steps below. If you're not comfortable with command line, [here are tutorials using GUI tools](https://github.com/firstcontributions/first-contributions/blob/main/README.md#tutorials-using-other-tools). If you don't have Git on your machine, [install it](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).
 
 ## Welcome to ACM!
 
 ACM at CSUF provides a social online platform, Discord, that brings passionate Titans together to engage in multiple conversations regarding our community, the tech field, and many more. Join [our Discord server](https://acmcsuf.com/discord) to learn more about future events, meet new people, and get involved with the community!
 
-## Fork `oss.acmcsuf.com/1st`
+## Fork `acmcsufoss/1st`
 
-<img src="https://github.com/EvanCPSC/1st/assets/142952307/3e78edf3-ce26-4d26-9767-09e012d2a1db" alt="Forking oss.acmcsuf.com/1st visual example" width="800" />
+<img src="https://github.com/EvanCPSC/1st/assets/142952307/3e78edf3-ce26-4d26-9767-09e012d2a1db" alt="Forking acmcsufoss/1st visual example" width="800" />
 
-Fork the repository by clicking on the fork button on the top of [`oss.acmcsuf.com/1st`'s page on GitHub](https://github.com/acmcsufoss/1st). This will create a copy of this repository in your account.
+Fork the repository by clicking on the fork button on the top of [`/1st`'s page on GitHub](https://github.com/acmcsufoss/1st). This will create a copy of this repository in your account.
 
 ### If you already forked this repository, make sure to update your fork, and you can skip this step.
 
@@ -20,9 +20,9 @@ Fork the repository by clicking on the fork button on the top of [`oss.acmcsuf.c
 
 <img src="https://github.com/EvanCPSC/1st/assets/142952307/8c866bcd-8e56-4ebd-be9f-cb597aea2e53" alt="Cloning the github repo visual example" width="800" />
 
-Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
+Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and copy the link.
 
-Open a terminal and run the following git command: git clone "url you just copied" where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project). See the previous steps to obtain the url.
+Open a terminal and run `git clone <url>` where `<url>` (without the angle brackets) is the url you just copied.
 
 <img src="https://github.com/EvanCPSC/1st/assets/142952307/50be2289-a798-441e-8abe-67f618a3eec5" alt="Copy the repo URL visual example" height="400" />
 
@@ -38,7 +38,7 @@ Change to the repository directory on your computer (if you are not already ther
 
 ## Make necessary changes and commit them
 
-Create a new Markdown file inside `src/contributors/fa25` that looks like `gh-user.md`, where `gh-user` is your GitHub username. Then, inside that file, fill out info in the following format:
+Create a new Markdown file inside `src/contributors/fa25` (replace `fa25` with the current semester) that looks like `gh-user.md`, where `gh-user` is your GitHub username. Then, inside that file, fill out info in the following format:
 
 ```
 ---
