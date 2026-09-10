@@ -32,19 +32,20 @@
       style:transform={`translate(-50%, -50%) rotate(${middleImageRotation})`}
     />
     <img class="rocket-shell" src={rocket.src} alt={rocket.alt} />
+    <button class="rocket-button" type="button" aria-label={buttonLabel} on:click></button>
   </div>
-  <button class="rocket-button" type="button" aria-label={buttonLabel} on:click></button>
 </div>
 
 <style>
   .rocket {
     position: relative;
-    padding-bottom: 20%;
+    aspect-ratio: 282 / 687.5;
     line-height: 0;
   }
 
   .rocket-body {
     position: relative;
+    transform-origin: 50% 62.5%;
   }
 
   .rocket-shell {
@@ -82,11 +83,22 @@
   .rocket-button {
     position: absolute;
     z-index: 3;
-    inset: 0;
+    inset: 0 0 -25%;
     border: 0;
     padding: 0;
     background: transparent;
     cursor: pointer;
+  }
+
+  .rocket-button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flame {
+      animation: none;
+    }
   }
 
   @keyframes thrust {

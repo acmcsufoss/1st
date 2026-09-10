@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { ContributorMarkdownEntry } from "../types";
-  import JellyfishField from "./JellyfishField.svelte";
+  import Rocket from "./fa26/RocketShip.svelte"
+  import RocketField from "./fa26/RocketField.svelte";
   import ContributorPopup from "./ContributorPopup.svelte";
   import Contributors from "./Contributors.svelte";
 
@@ -21,7 +22,7 @@
   <ContributorPopup bind:contributor bind:isOpen={isContributorDialogOpen} />
 {/key}
 
-<JellyfishField {contributors} {openContributorDialog} />
+<RocketField {contributors} {openContributorDialog} />
 <div class="contributors-grid">
   <h2>List Of Contributors</h2>
   <Contributors {contributors} />
