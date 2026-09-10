@@ -2,11 +2,11 @@
   import type { ContributorMarkdownEntry } from "../../types";
 
   export let contributor: ContributorMarkdownEntry | undefined = undefined;
-  export let queuePosition = 0;
+  export let rocketsAhead: number | null = null;
+  export let arrivalSeconds: number | null = null;
   export let contributorCount = 1;
 
   $: profile = contributor?.frontmatter;
-  $: eta = queuePosition * 6;
   $: isInvalid = !!profile && [
     profile.name,
     profile.githubUsername,
@@ -102,8 +102,8 @@
 
     <aside class="instrument-panel">
       <div class="instrument warning">{isInvalid ? "WARNING" : profile ? "CONNECTED" : "STANDBY"}</div>
-      <div class="instrument">ROCKETS AHEAD <b>{profile ? queuePosition : "—"}</b></div>
-      <div class="instrument">EST. ARRIVAL <b>{profile ? `${eta}s` : "—"}</b></div>
+      <div class="instrument">ROCKETS AHEAD <b>{profile ? rocketsAhead ?? "—" : "—"}</b></div>
+      <div class="instrument">EST. ARRIVAL <b>{!profile || arrivalSeconds === null ? "—" : arrivalSeconds === 0 ? "IN FIELD" : `${arrivalSeconds}s`}</b></div>
       <div class="instrument">FLEET SIZE <b>{contributorCount}</b></div>
       <div class="radar" aria-hidden="true"><i></i></div>
     </aside>

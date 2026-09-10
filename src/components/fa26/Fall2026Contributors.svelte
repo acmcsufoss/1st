@@ -3,10 +3,12 @@
   import RocketField from "./RocketField.svelte";
   import RocketDashboard from "./RocketDashboard.svelte";
   import Contributors from "../Contributors.svelte";
+  import type { FlightStatus } from "./flightTiming";
 
   export let contributors: ContributorMarkdownEntry[];
 
   let selectedContributor = -1;
+  let telemetry: FlightStatus = { seconds: null, rocketsAhead: null };
   let scene: HTMLDivElement;
   let dashboard: HTMLDivElement;
 
@@ -68,11 +70,12 @@
 }} />
 
 <div class="rocket-scene" bind:this={scene}>
-  <RocketField {contributors} {openContributorDialog} bind:selectedContributor />
+  <RocketField {contributors} {openContributorDialog} bind:selectedContributor bind:telemetry />
   <div class="dashboard-dock" bind:this={dashboard}>
     <RocketDashboard
       {contributor}
-      queuePosition={selectedContributor}
+      rocketsAhead={telemetry.rocketsAhead}
+      arrivalSeconds={telemetry.seconds}
       contributorCount={contributors.length}
     />
   </div>

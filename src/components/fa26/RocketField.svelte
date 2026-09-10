@@ -1,11 +1,55 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import type { ContributorMarkdownEntry } from "../../types";
+  import { arrivalSeconds, flightStatus, routeStart, type FlightStatus } from "./flightTiming";
   import RocketShip from "./RocketShip.svelte";
 
   export let contributors: ContributorMarkdownEntry[] = [];
   export let openContributorDialog: (i: number) => void;
 
   export let selectedContributor = -1;
+  export let telemetry: FlightStatus = { seconds: null, rocketsAhead: null };
+
+  let field: HTMLDivElement;
+  let slots: HTMLButtonElement[] = [];
+  let arrivals: { contributor: number; seconds: number }[] = [];
+  $: telemetry = flightStatus(arrivals, selectedContributor);
+
+  // The dashboard is going to do some math with how long it takes
+  // for a tracked ship to show up again on the field. 
+  // When the field is mounted, we periodically gather a bunch of info
+  // On each rocket's animation progress, like its position, timing, travel distance, hight/width
+  // and use them to calculate how long it will be till it shows up on the field again
+  onMount(() => {
+    function updateTelemetry() {
+      const { width, height } = field.getBoundingClientRect();
+      arrivals = rockets.map((rocket, i) => {
+        const animation = slots[i]?.getAnimations().find(a => a instanceof CSSAnimation);
+        const timing = animation?.effect?.getComputedTiming();
+        // Without a flight animation (reduced motion), the rocket is already available.
+        let seconds = 0;
+
+        if (timing && timing.progress !== null) {
+          const durationSeconds = Number(timing.duration) / 1000;
+          const travelDistance = rockets.length * 450;
+          seconds = arrivalSeconds(
+            timing.progress,
+            durationSeconds,
+            travelDistance,
+            width,
+            height,
+            rocket.offset,
+          );
+        }
+
+        return { contributor: i % contributors.length, seconds };
+      });
+    }
+
+    updateTelemetry();
+    const timer = window.setInterval(updateTelemetry, 250);
+    return () => window.clearInterval(timer);
+  });
 
   // Repeat the full list until we have at least four rockets: no long empty gaps.
   $: copies = Math.ceil(4 / (contributors.length || 1));
@@ -17,8 +61,10 @@
 
 <div
   class="rocket-field"
+  bind:this={field}
+  style:--start={`${routeStart}px`}
   style:--duration={`${rockets.length * 6}s`}
-  style:--end={`${rockets.length * 450 - 900}px`}
+  style:--end={`${rockets.length * 450 + routeStart}px`}
 >
   <div class="space-background" aria-hidden="true"></div>
   <div class="field-rail top-rail" aria-hidden="true"></div>
@@ -32,6 +78,7 @@
     -->
     <button
       class="rocket-slot"
+      bind:this={slots[i]}
       data-contributor-index={i % contributors.length}
       class:selected={selectedContributor === i % contributors.length}
       aria-pressed={selectedContributor === i % contributors.length}
@@ -202,7 +249,7 @@
 
   @keyframes fly {
     from {
-      transform: translate(-900px, 900px);
+      transform: translate(var(--start), calc(-1 * var(--start)));
     }
     to {
       transform: translate(var(--end), calc(-1 * var(--end)));
