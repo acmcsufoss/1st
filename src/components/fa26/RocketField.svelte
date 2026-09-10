@@ -103,6 +103,7 @@
   }
 
   .hl-line {
+    stroke-width: 6;
     opacity: 0;
     stroke-dasharray: 200 500;
     transition: stroke-dashoffset 0.5s ease-in-out, opacity 0.1s ease-in-out;
