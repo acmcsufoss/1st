@@ -117,7 +117,7 @@
   .dashboard {
     position: relative;
     width: min(1100px, calc(100% - 2rem));
-    margin: -1rem auto 0;
+    margin: 1.5rem auto 0;
     padding: 0.8rem;
     border: 2px solid #202020;
     background: #b6ccc5;
