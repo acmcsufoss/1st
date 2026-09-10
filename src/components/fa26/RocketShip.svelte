@@ -3,6 +3,7 @@
   export let middleImageAlt = "Rocket contributor";
   export let buttonLabel = "Rocket ship";
   export let rotation = 0;
+  export let interactive = true;
 
   $: rocketRotation = `${rotation}deg`;
   $: middleImageRotation = `${-rotation}deg`;
@@ -32,7 +33,9 @@
       style:transform={`translate(-50%, -50%) rotate(${middleImageRotation})`}
     />
     <img class="rocket-shell" src={rocket.src} alt={rocket.alt} />
-    <button class="rocket-button" type="button" aria-label={buttonLabel} on:click></button>
+    {#if interactive}
+      <button class="rocket-button" type="button" aria-label={buttonLabel} on:click></button>
+    {/if}
   </div>
 </div>
 

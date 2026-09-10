@@ -24,19 +24,26 @@
     Each slot controls the offset of where the rocket is
     and the speed at which it flies across the screen.
     -->
-    <div
+    <button
       class="rocket-slot"
+      type="button"
+      aria-label={`Open ${contributor.frontmatter.name}`}
       style:--offset={`${offset}px`}
       style:animation-delay={`${-i * 4}s`}
+      on:click={() => openContributorDialog(i % contributors.length)}
     >
+      <svg class="border" viewBox="0 0 400 400" aria-hidden="true">
+        <polyline points="400,0 0,0 0,400 400,400, 400,0" class="bg-line" />
+        <polyline points="400,0 0,0 0,400 400,400, 400,0 0,0" class="hl-line" />
+      </svg>
       <RocketShip
         middleImageSrc={`https://github.com/${contributor.frontmatter.githubUsername}.png`}
         middleImageAlt={contributor.frontmatter.name}
         buttonLabel={`Open ${contributor.frontmatter.name}`}
         rotation={45}
-        on:click={() => openContributorDialog(i % contributors.length)}
+        interactive={false}
       />
-    </div>
+    </button>
   {/each}
 </div>
 
@@ -57,9 +64,59 @@
     height: 400px;
     display: grid;
     place-items: center;
-    margin-left: -250px;
-    margin-top: -250px;
+    margin-left: -200px;
+    margin-top: -200px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
     animation: fly var(--duration) linear infinite;
+  }
+
+  .rocket-slot:hover,
+  .rocket-slot:focus-visible {
+    background: rgb(79 149 218 / 20%);
+  }
+
+  .border {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    pointer-events: none;
+    stroke: white;
+    stroke-width: 3;
+  }
+
+  .bg-line {
+    opacity: 0;
+  }
+
+
+  .rocket-slot:hover .bg-line,
+  .rocket-slot:focus-visible .bg-line {
+    opacity: 0.25;
+    transition: opacity 0.25s ease-in-out;
+  }
+
+  .hl-line {
+    opacity: 0;
+    stroke-dasharray: 200 500;
+    transition: stroke-dashoffset 0.5s ease-in-out, opacity 0.1s ease-in-out;
+  }
+
+  .rocket-slot:hover .hl-line,
+  .rocket-slot:focus-visible .hl-line {
+    opacity: 1;
+    stroke-dashoffset: -700px;
+  }
+
+  .rocket-slot:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 6px;
   }
 
   @keyframes fly {
